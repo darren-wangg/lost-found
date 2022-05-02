@@ -41,12 +41,23 @@ public class UserDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
 	    	
-	    	String select = "SELECT * FROM user_profile WHERE email = ?";
-			PreparedStatement preparedStatement = con.prepareStatement(select);	
-			preparedStatement.setString(1, user.getEmail());
-			ResultSet resultSet = preparedStatement.executeQuery();
+	    	// Check if email already exist in database
+	    	String selectEmail = "SELECT * FROM user_profile WHERE email = ?";
+			PreparedStatement preparedStatement1 = con.prepareStatement(selectEmail);	
+			preparedStatement1.setString(1, user.getEmail());
+			ResultSet resultSet1 = preparedStatement1.executeQuery();
 			
-			if(resultSet.next()){
+			if(resultSet1.next()){
+				return true;
+			}
+			
+			// Check if username already exist in database
+			String selectUsername = "SELECT * FROM user_profile WHERE username = ?";
+			PreparedStatement preparedStatement2 = con.prepareStatement(selectUsername);	
+			preparedStatement2.setString(1, user.getUsername());
+			ResultSet resultSet2 = preparedStatement2.executeQuery();
+			
+			if(resultSet2.next()){
 				return true;
 			}
 			

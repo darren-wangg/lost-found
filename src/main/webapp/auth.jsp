@@ -162,6 +162,18 @@
 		}
 	}
 	
+	var checkRegisterUsernameNull = function() {
+		if (document.getElementById('registerUsername').value === null || document.getElementById('registerUsername').value === "") {
+			document.getElementById('missingRegisterUsername').style.color = 'red';
+			document.getElementById('missingRegisterUsername').innerHTML = 'Username cannot be empty.';
+			document.getElementById('registerAccount').disabled = true;
+		} 
+		else {
+			document.getElementById('registerAccount').disabled = false;
+			document.getElementById('missingRegisterUsername').innerHTML = '';
+		}
+	}
+	
 	var loginCheck = function() {
 		var email_ = document.getElementById('loginEmail').value;
 		var password_ = document.getElementById('loginPassword').value;
@@ -175,6 +187,7 @@
 		var name_ = document.getElementById('registerName').value;
 		var confirm_ = document.getElementById('confirmPassword').value;
 		var email_ = document.getElementById('registerEmail').value;
+		var username = document.getElementById('registerUsername').value;
 		var password_ = document.getElementById('registerPassword').value;
 		if (name_ === null || name_ === "" || confirm_ === null || confirm_ === "" || 
 				email_ === null || email_ === "" || password_ === null || password_ === "") {
@@ -204,7 +217,7 @@
 	<div class="header">
 		<% if(request.getAttribute("error") != null) {%>
 		<div id="error">
-			Invalid email or password. Or, bad Google login. Please try again. 
+			Invalid email, username, or password. Or, bad Google login. Please try again. 
 		</div>
 		<%}%>
 		<% if(request.getAttribute("userRegistered") != null) {%>
@@ -276,6 +289,9 @@
 			<br> <label for="name">Name</label> <br>
 			<input type="text" class="entry" id="registerName" name="name" onkeyup="checkRegisterNameNull()" style="width: 400px">
 			<br> <span id='missingRegisterName'></span>
+			<br> <label for="username">Username</label> <br>
+			<input type="text" class="entry" id="registerUsername" name="username" onkeyup="checkRegisterUsernameNull()" style="width: 400px">
+			<br> <span id='missingRegisterUsername'></span>
 			<br> <label for="password">Password</label> <br>
 			<input type="password" class="entry" id="registerPassword" name="password" onkeyup="checkRegisterPasswordNull(); check()" style="width: 400px" /> <br>
 			<span id='missingRegisterPassword'></span>
