@@ -6,8 +6,8 @@ body {
 }
 
 .navbar-brand {
-	font-family: 'Lobster', cursive;
-	color: #c90606 !important;
+	font-family: 'Water Brush', cursive;
+	color: #4267B2 !important;
 	font-size: 40px !important;
 }
 
@@ -49,7 +49,7 @@ body {
 
 #signIn {
   	color: white;
-	background: #c90606;
+	background: #4267B2;
 	border: none;
 	width: 408px;
     height: 30px;
@@ -58,7 +58,7 @@ body {
 
 #registerAccount {
   	color: white;
-	background: #c90606;
+	background: #4267B2;
 	border: none;
 	width: 408px;
     height: 30px;
@@ -67,7 +67,7 @@ body {
 
 #customBtn {
   	color: white;
-	background: #33adff;
+	background: rgb(51, 173, 255);
 	border: none;
 	width: 408px;
     height: 30px;

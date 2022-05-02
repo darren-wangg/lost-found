@@ -11,7 +11,7 @@ import Util.Constant;
 import Util.User;
 
 public class UserDao {
-	private static final String url = "jdbc:mysql://localhost:3306/PA2";
+	private static final String url = "jdbc:mysql://localhost:3306/lost_n_found";
     private static final String username_ = Constant.DBUserName;
     private static final String password_ = Constant.DBPassword;
 	
@@ -21,11 +21,13 @@ public class UserDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
 	    	
-	    	String insert = "INSERT INTO Users (email, name_, password_) VALUES (?, ?, ?);";
+	    	String insert = "INSERT INTO user_profile (email, name_, id, username, password_) VALUES (?, ?, ?, ?, ?);";
 			PreparedStatement preparedStatement = con.prepareStatement(insert);
 			preparedStatement.setString(1, user.getEmail());
 			preparedStatement.setString(2, user.getName());
-			preparedStatement.setString(3, user.getPassword());
+			preparedStatement.setString(3, user.getId());
+			preparedStatement.setString(4, user.getUsername());
+			preparedStatement.setString(5, user.getPassword());
 			
 			result = preparedStatement.executeUpdate();
 			
@@ -39,7 +41,7 @@ public class UserDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
 	    	
-	    	String select = "SELECT * FROM Users WHERE email = ?";
+	    	String select = "SELECT * FROM user_profile WHERE email = ?";
 			PreparedStatement preparedStatement = con.prepareStatement(select);	
 			preparedStatement.setString(1, user.getEmail());
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -58,7 +60,7 @@ public class UserDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
 	    	
-	    	String select = "SELECT * FROM Users WHERE email = ?";
+	    	String select = "SELECT * FROM user_profile WHERE email = ?";
 			PreparedStatement preparedStatement = con.prepareStatement(select);	
 			preparedStatement.setString(1, user.getEmail());
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -66,7 +68,11 @@ public class UserDao {
 			if(resultSet.next()){
 				if(user.getPassword().equals(resultSet.getString("password_"))) {
 					String name = resultSet.getString("name_");
+					String id = resultSet.getString("id");
+					String username = resultSet.getString("username");
 					user.setName(name);
+					user.setId(id);
+					user.setUsername(username);
 				}
 			}
 			
@@ -83,7 +89,7 @@ public class UserDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
 	    	
-	    	String select = "SELECT * FROM Users WHERE email = ?";
+	    	String select = "SELECT * FROM user_profile WHERE email = ?";
 			PreparedStatement preparedStatement = con.prepareStatement(select);	
 			preparedStatement.setString(1, user.getEmail());
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -95,7 +101,7 @@ public class UserDao {
 				}
 			}
 			else {
-				String insert = "INSERT INTO Users (email, name_) VALUES (?, ?);";
+				String insert = "INSERT INTO user_profile (email, name_) VALUES (?, ?);";
 				PreparedStatement preparedStatement2 = con.prepareStatement(insert);
 				preparedStatement2.setString(1, user.getEmail());
 				preparedStatement2.setString(2, user.getName());

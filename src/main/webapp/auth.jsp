@@ -216,7 +216,7 @@
 	
 	<nav class="navbar navbar-expand-lg navbar-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.jsp">SalEats!</a>
+				<a class="navbar-brand" href="index.jsp">lost-n-found</a>
 				<%if (!name_.equals("")){%>
 				<a>Hi, <%=name_%></a>
 				<%}%>
@@ -256,6 +256,7 @@
 					<i class="fa-solid fa-right-to-bracket"></i> Sign In
 				</button>
 				</br>
+				</br>
 				<button type="button" id="customBtn">
 					<i class="fa-brands fa-google"></i> Sign in with Google
 				</button>
@@ -286,7 +287,7 @@
 				type="checkbox"
 				onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');"
 				required name="terms"> I have read and agree to all terms
-				and conditions of SalEats.</label><br><br>
+				and conditions of lost-n-found.</label><br><br>
 			<p>
 				<button type="submit" id="registerAccount" disabled="disabled">
 					<i class="fa-solid fa-user-plus"></i> Create Account
