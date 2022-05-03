@@ -36,9 +36,8 @@ public class LikeDispatcher extends HttpServlet {
             throws IOException {
     	try {
         	Like like = new Like();
-        	like.setId(request.getParameter("id"));
         	like.setPostID(request.getParameter("post_id"));
-        	like.setProfileID(request.getParameter("profile_id"));
+        	like.setProfileEmail(request.getParameter("profile_email"));
         	like.setCreatedTime(request.getParameter("created_time"));
 
         	response.setContentType("text/html");

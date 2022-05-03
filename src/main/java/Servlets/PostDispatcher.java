@@ -43,8 +43,7 @@ public class PostDispatcher extends HttpServlet {
 		    	request.getRequestDispatcher("auth.jsp").include(request, response);
     		}
         	Post post = new Post();
-        	post.setId(request.getParameter("id"));
-        	post.setProfileID(request.getParameter("profile_id"));
+        	post.setProfileEmail(request.getParameter("profile_email"));
         	post.setWrittenText(request.getParameter("written_text"));
         	post.setCreatedDatetime(request.getParameter("created_datetime"));
 

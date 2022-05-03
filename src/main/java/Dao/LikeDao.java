@@ -19,12 +19,11 @@ public class LikeDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, Constant.DBUserName, Constant.DBPassword);
 	    	
-	    	String insert = "INSERT INTO post_like (id, post_id, profile_id, created_time) VALUES (?, ?, ?, ?);";
+	    	String insert = "INSERT INTO post_like (post_id, profile_email, created_time) VALUES (?, ?, ?);";
 			PreparedStatement preparedStatement = con.prepareStatement(insert);
-			preparedStatement.setString(1, like.getId());
-			preparedStatement.setString(2, like.getPostID());
-			preparedStatement.setString(3, like.getProfileID());
-			preparedStatement.setString(4, like.getCreatedTime());
+			preparedStatement.setString(1, like.getPostID());
+			preparedStatement.setString(2, like.getProfileEmail());
+			preparedStatement.setString(3, like.getCreatedTime());
 			
 			result = preparedStatement.executeUpdate();
 			

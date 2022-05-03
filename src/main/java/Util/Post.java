@@ -2,13 +2,13 @@ package Util;
 
 public class Post {
 	private String id;
-	private String profile_id;
+	private String profile_email;
 	private String written_text;
 	private String created_datetime;
 	
-	public Post(String id_, String profile_id_, String written_text_, String created_datetime_) {
+	public Post(String id_, String profile_email_, String written_text_, String created_datetime_) {
 		id = id_;
-		profile_id = profile_id_;
+		profile_email = profile_email_;
 		written_text = written_text_;
 		created_datetime = created_datetime_;
 	}
@@ -25,12 +25,12 @@ public class Post {
 		id = id_;
 	}
 	
-	public String getProfileID() {
-		return profile_id;
+	public String getProfileEmail() {
+		return profile_email;
 	}
 	
-	public void setProfileID(String profID) {
-		profile_id = profID;
+	public void setProfileEmail(String pe) {
+		profile_email = pe;
 	}
 	
 	public String getWrittenText() {

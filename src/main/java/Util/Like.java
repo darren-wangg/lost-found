@@ -3,13 +3,13 @@ package Util;
 public class Like {
 	private String id;
 	private String post_id;
-	private String profile_id;
+	private String profile_email;
 	private String created_time;
 	
-	public Like(String id_, String post_id_, String profile_id_, String created_time_) {
+	public Like(String id_, String post_id_, String profile_email_, String created_time_) {
 		id = id_;
 		post_id = post_id_;
-		profile_id = profile_id_;
+		profile_email = profile_email_;
 		created_time = created_time_;
 	}
 	
@@ -33,12 +33,12 @@ public class Like {
 		post_id = pi;
 	}
 	
-	public String getProfileID() {
-		return profile_id;
+	public String getProfileEmail() {
+		return profile_email;
 	}
 	
-	public void setProfileID(String profID) {
-		profile_id = profID;
+	public void setProfileEmail(String pe) {
+		profile_email = pe;
 	}
 	
 	public String getCreatedTime() {

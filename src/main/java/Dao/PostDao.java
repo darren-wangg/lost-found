@@ -23,12 +23,11 @@ public class PostDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, Constant.DBUserName, Constant.DBPassword);
 	    	
-	    	String insert = "INSERT INTO user_post (id, profile_id, written_text, created_datetime) VALUES (?, ?, ?, ?);";
+	    	String insert = "INSERT INTO user_post (profile_email, written_text, created_datetime) VALUES (?, ?, ?);";
 			PreparedStatement preparedStatement = con.prepareStatement(insert);
-			preparedStatement.setString(1, post.getId());
-			preparedStatement.setString(2, post.getProfileID());
-			preparedStatement.setString(3, post.getWrittenText());
-			preparedStatement.setString(4, post.getCreatedDatetime());
+			preparedStatement.setString(1, post.getProfileEmail());
+			preparedStatement.setString(2, post.getWrittenText());
+			preparedStatement.setString(3, post.getCreatedDatetime());
 			
 			result = preparedStatement.executeUpdate();
 			
@@ -49,10 +48,10 @@ public class PostDao {
 			
 			if(resultSet.next()){
 				String id = resultSet.getString("id");
-				String profile_id = resultSet.getString("profile_id");
+				String profile_email = resultSet.getString("profile_email");
 				String written_text = resultSet.getString("written_text");
 				String created_datetime = resultSet.getString("created_datetime");
-				Post post = new Post(id, profile_id, written_text, created_datetime);
+				Post post = new Post(id, profile_email, written_text, created_datetime);
 				posts.add(post);
 			}
 		}
