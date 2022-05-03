@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+/**** NAVBAR ****/
+/* color of tabs */
+.navbar-nav .nav-item .nav-link{
+    color: #D5ECE0;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: #03256F;
+}
+
+.login-register, .hello-username{
+    /* color: red; */
+    text-decoration: none;
+}
+.navbar {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* NEW PAGE BEGINNING */
+/* HOME PAGE */
+
+/**** Header ****/
+.parent-container {
+    width: 100%;
+    /* height of browser without the navbar */
+    height: 720px; 
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#header-container {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    display: block;
+}
+
+#header-words {
+    font-size: 100px;
+    color: #03256F;
+}
+#motto {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #FFFFFF; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 3s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 50% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #FFFFFF; }
+  }
+/**** Graphics ****/
+.face3-home {
+    display: inline;
+}
+.face3-home img {
+    padding-left: 15px;
+    width: 100px;
+}
+.circles-div {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.circles {
+    width: 33%;
+    margin: 20px;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+.circles:hover {
+    animation-duration: 2s;
+    animation-name: bounce1;
+    /* freezes on last frame */
+    animation-fill-mode: forwards;
+}
+@keyframes bounce1 {
+    from {
+        width: 33%;
+    }
+    to {
+        width: 38%;
+    }
+}
+.add-button {
+    width: 100px;
+    position: absolute;
+    /* might have to change position depending on screen size */
+    right: 20px;
+    bottom: 20px;
+}
+.add-button:hover {
+    animation-duration: 2s;
+    animation-name: bounce;
+    /* freezes on last frame */
+    animation-fill-mode: forwards;
+    /* box-shadow: 10px 5px 2px #807f6c; */
+}
+  
+@keyframes bounce {
+    from {
+        width: 100px;
+    }
+
+    to {
+        width: 110px;
+    }
+}
+
+/* NEW PAGE BEGINNING */
+/* LOGIN PAGE */
+
+#username, #password {
+    background-color: #D5ECE0;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+#login-submit-btn, #register-submit-btn, #next-btn {
+    background-color: #FFFFFF;
+    border: 1.5px solid #03256F;
+    border-radius: 8px;
+    color: #03256F;
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+#login-submit-btn:hover, #register-submit-btn:hover, #next-btn:hover {
+    background-color: #03256F;
+    color: #FFFFFF;
+}
+.inputs-div {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    /* display: block; */
+    margin-left: auto;
+    margin-right: auto;
+}
+.login-prompt, .reg-prompt {
+    padding-top: 30px;
+    color: #03256F;
+}
+.login-container, .add-container {
+    height: 720px; 
+}
+#face1-login {
+    width: 110px;
+    margin-bottom: 20px;
+}
+
+/* NEW PAGE BEGINNING */
+/* REGISTER PAGE */
+#email-register, #username-register, #password-register {
+    background-color: #D5ECE0;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+form {
+    margin-bottom: 0px;
+}
+/* NEW PAGE BEGINNING */
+/* POST PAGE */
+#name {
+    background-color: #D5ECE0;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 30%;
+}
+
+/* NEW PAGE BEGINNING */
+/* VIEW PAGE */
+#workouts-search {
+    background-color: #FFFFFF;
+    border: 1.5px solid #03256F;
+    border-radius: 8px;
+    padding: 10px;
+    width: 40%;
+    margin-left: 10px;
+}
+#face1-view {
+    width: 80px;
+    margin-bottom: 15px;
+}
+#face1-view1, #search-form {
+    display: inline;
+}
+.search-div {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.workout {
+    background-color: #D5ECE0;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
