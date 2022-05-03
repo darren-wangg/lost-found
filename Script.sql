@@ -7,14 +7,14 @@ DROP TABLE IF EXISTS user_profile;
 CREATE TABLE user_profile (
   email VARCHAR(50), 
   name_ VARCHAR(50),
-  id VARCHAR(15) NOT NULL PRIMARY KEY,
+  id VARCHAR(15) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(50),
   password_ VARCHAR(50)
 );
 
 DROP TABLE IF EXISTS post_like;
 CREATE TABLE post_like (
-  id VARCHAR(15) NOT NULL PRIMARY KEY, 
+  id VARCHAR(15) NOT NULL PRIMARY KEY AUTO_INCREMENT, 
   post_id VARCHAR(15) REFERENCES user_post(id),
   profile_id VARCHAR(15) REFERENCES user_profile(id),
   created_time TIMESTAMP
@@ -22,7 +22,7 @@ CREATE TABLE post_like (
 
 DROP TABLE IF EXISTS user_post;
 CREATE TABLE user_post (
-	id VARCHAR(15) NOT NULL PRIMARY KEY, 
+    id VARCHAR(15) NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     profile_id VARCHAR(15) REFERENCES user_profile(id),
     written_text TEXT,
     created_datetime TIMESTAMP
@@ -30,7 +30,7 @@ CREATE TABLE user_post (
 
 DROP TABLE IF EXISTS post_comment;
 CREATE TABLE post_comment (
-	id VARCHAR(15) NOT NULL PRIMARY KEY, 
+    id VARCHAR(15) NOT NULL PRIMARY KEY, 
     post_id VARCHAR(15) REFERENCES user_post(id),
     profile_id VARCHAR(15) REFERENCES user_profile(id),
     comment_text TEXT,

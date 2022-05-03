@@ -4,6 +4,7 @@ import java.util.regex.Pattern;
 
 public class Constant {
     //TODO replace it with your DB credentials
+	static public String DBLocation = "jdbc:mysql://localhost:3306/lost_n_found";
     static public String DBUserName = "root";
     static public String DBPassword = "root";
     static public String FileName = "restaurant_data.json";
