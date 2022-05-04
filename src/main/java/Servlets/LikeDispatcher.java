@@ -7,25 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Util.Post;
-import Dao.PostDao;
+import Dao.LikeDao;
+import Util.Like;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.Serial;
-import java.sql.SQLException;
 
 /**
- * Servlet implementation class LoginDispatcher
+ * Servlet implementation class LogoutDispatcher
  */
-@WebServlet("/Post")
-public class PostDispatcher extends HttpServlet {
+@WebServlet("/Like")
+public class LikeDispatcher extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 1L;
     
-    private PostDao postDao = new PostDao();
+    private LikeDao likeDao = new LikeDao();
 
-    public PostDispatcher() {
+    public LikeDispatcher() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,20 +33,16 @@ public class PostDispatcher extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    
+            throws IOException {
     	try {
-    		if (request.getParameter("written_text") == "") {
-				request.setAttribute("error", "Post cannot be blank");
-		    	request.getRequestDispatcher("auth.jsp").include(request, response);
-    		}
-        	Post post = new Post();
-        	post.setProfileEmail(request.getParameter("profile_email"));
-        	post.setWrittenText(request.getParameter("written_text"));
-        	post.setCreatedDatetime(request.getParameter("created_datetime"));
+        	Like like = new Like();
+        	like.setPostID(request.getParameter("post_id"));
+        	like.setProfileEmail(request.getParameter("profile_email"));
+        	like.setCreatedTime(request.getParameter("created_time"));
 
         	response.setContentType("text/html");
-			postDao.post(post);
+			likeDao.like(like);
+			
 		} catch (Exception e) {		}
     }
 
@@ -58,7 +52,8 @@ public class PostDispatcher extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         doGet(request, response);
     }
+
 }
