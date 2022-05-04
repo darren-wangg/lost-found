@@ -1,6 +1,3 @@
-<?php
-session_start(); 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +9,35 @@ session_start();
     <link rel="stylesheet" type="text/css" href="general.css">
 </head>
 <body>
-  <?php include 'nav.php'; ?>
+   <nav class="navbar navbar-expand-md navbar-expand-lg navbar-light" style="background-color: #FF9736" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home.php">
+            <img src="images/logo-graphic.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Stamina
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="view.php">View</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="post.php">+ Add Workout</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+                <a class="login-register" href="login.php">Login/Register</a>
+                <a class="p-2 hello-username"><span style="color:#FFFFFF">Hi username!</span></a>
+                <a class="p-2 login-register" href="logout.php">Logout</a>
+        </span>
+        </div>
+    </div>
+  </nav>
   <div class="parent-container">
       <div id="header-container">
           <p id="motto">Track your workouts. Build a habit. Increase your <strong>stamina</strong> to tackle life.</p>

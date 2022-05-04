@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar</title>
+    <title>Login/Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="general.css">
 </head>
@@ -24,7 +24,7 @@
             <a class="nav-link" aria-current="page" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" href="view.php">View</a>
+            <a class="nav-link" href="view.php">View</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="post.php">+ Add Workout</a>
@@ -38,48 +38,29 @@
         </div>
     </div>
   </nav>
-  <div class="search-div">
-    <!-- created new div "face1-view1" to force display of image to display: inline -->
-    <div id="face1-view1">
-      <img id="face1-view" src="images/face1.png"/>
-    </div>
-    <form id="search-form" method="GET" action="">
-      <label for="workouts-search"></label>
-      <input type="text" id="workouts-search" name="workouts-search" placeholder="Search your past workouts"><br><br>
-      <!-- How to make this not a button, so you can just press enter -->
-      <!-- <input id="search-submit-btn" type="submit" value="Login">  -->
-    </form>
-  </div>
-  <div class="container">
-    <div class="row">
-      <!-- <div class="column"> -->
-      <div class="workout">
-        <p class="title">Workout #1</p>
-        <p class="extra-info">
-          . <br/>
-          . <br/>
-          . <br/>
-          . <br/>
-        </p>
+  <div class="container login-container">
+      <div class="row h-100 inputs-div align-items-center">
+          <div class="column my-auto">
+              <img id="face1-login" src="images/face1.png"/>
+              <form method="POST" action="login.php">
+                  <label for="username"></label>
+                  <input type="text" id="username" name="username" placeholder="Username"><br><br>
+                  <label for="password"></label>
+                  <input type="password" id="password" name="password" placeholder="Password"><br><br>
+                  <div class="font-italic text-danger">
+                    <!-- Show errors here. -->
+                    <?php
+//                       if ( isset($error) && !empty($error) ) {
+//                         echo $error . "<br><br>";
+//                       }
+//                     ?>
+                  </div>
+                  <input id="login-submit-btn" type="submit" value="Login">
+              </form>
+              <p class="reg-prompt">Not registered? <a href="register.php">Register here.</a></p>
+          </div>
       </div>
-      <div class="workout">
-        <p class="title">Workout #2</p>
-        <p class="extra-info">
-          . <br/>
-          . <br/>
-          . <br/>
-          . <br/>
-        </p>
-      </div>
-      <!-- </div> -->
-    </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/1374c208f0.js" crossorigin="anonymous"></script>
-
-  <script src="main.js"></script>
 </body>
 </html>
