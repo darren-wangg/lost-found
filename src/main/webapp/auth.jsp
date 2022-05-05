@@ -268,14 +268,14 @@
 				<button type="submit" id="signIn" disabled="disabled">
 					<i class="fa-solid fa-right-to-bracket"></i> Sign In
 				</button>
-				</br>
+<!-- 				</br>
 				</br>
 				<button type="button" id="customBtn">
 					<i class="fa-brands fa-google"></i> Sign in with Google
 				</button>
 				<script>
 					startApp();
-				</script>
+				</script> -->
 			</p>
 
 		</form>

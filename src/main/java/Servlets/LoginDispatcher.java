@@ -34,7 +34,7 @@ public class LoginDispatcher extends HttpServlet {
      * response)
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected synchronized void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
     	

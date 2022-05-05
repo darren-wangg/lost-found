@@ -7,11 +7,10 @@ public class User {
 	private String username;
 	private String password;
 	
-	public User(String name_, String email_, String id_, String username_, String password_) {
+	public User(String name_, String email_, String username_, String password_) {
 		name = name_;
 		email = email_;
 		password = password_;
-		id = id_;
 		username = username_;
 		
 	}

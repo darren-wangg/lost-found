@@ -22,7 +22,7 @@ public class LogoutDispatcher extends HttpServlet {
      * response)
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected synchronized void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         // TODO Remove userID cookie
 		
