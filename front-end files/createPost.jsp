@@ -52,7 +52,7 @@
                 <img id="face1-login" src="images/face1.png"/>
                 <form id="form" method="POST" action="createPost.jsp">
                 	<label for="post"></label>
-                	<textarea id="post-text" name = "post-text" rows="10" cols = "70">Write post here. . .</textarea>
+                	<textarea id="post-text" name = "post-text" rows="10" cols = "70" placeholder="Write post here. . ."></textarea>
                 	<br><br>
                 	<input type="submit" value="Post">
                 	<div class="error">Error message</div>
@@ -64,13 +64,7 @@
                     <input type="text" id="password-register" name="password-register" placeholder="Password"><br><br> -->
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
-                    <?php
-                      if ( isset($error) && !empty($error) ) {
-                        echo $error . "<br><br>";
-                      }
-                    ?>
                     </div>
-                    <input id="register-submit-btn" type="submit" value="Register">
                 </form>
                 <p class="login-prompt"><a href="login.php">Don't have an account?</a></p>
             </div>
