@@ -30,7 +30,7 @@
             <span class="navbar-text">
                     <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
                     <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
-                    <a class="p-2 login-register nav-link-custom" href="logout.jsp">Logout</a>
+                    <a class="p-2 login-register nav-link-custom" href="Logout">Logout</a>
             </span>
             </div>
         </div>
@@ -42,18 +42,22 @@
                 <form method="POST" action="Register">
                     <label for="email-register"></label>
                     <input type="text" id="email-register" name="email-register" placeholder="Email">
-                    <p id="password-error" class="invalid-feedback">Email is required.</p>
+                    <p id="password-error" class="email-error text-danger"></p>
                     <label for="username-register"></label>
                     <input type="text" id="username-register" name="username-register" placeholder="Username">
-                    <p id="password-error" class="invalid-feedback">Username is required.</p>
+                    <p id="username-error" class="username-error text-danger"></p>
                     <label for="password-register"></label>
                     <input type="password" id="password-register" name="password-register" placeholder="Password">
+<<<<<<< HEAD
+                    <p id="password-error" class="password-error text-danger"></p>
+=======
                     <p id="password-error" class="invalid-feedback">Password is required.</p>
+>>>>>>> 4fc0586522137b85785716b95dc23b3124b4b33b
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
 				   			<!-- set er as whatever getAttribute returns from setAttribute("error", error)-->
 				   			<!-- JSP tags connect page to Java backend aka servlet.java -->
-				   			<% String er = (String) request.getAttribute("emailError");
+				   			<% String er = (String) request.getAttribute("error");
 							/* prints out the correct error from the servlet */
 							if (er != null) out.println(er);%>
                     </div>
@@ -66,27 +70,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<script>
 		document.querySelector('form').onsubmit = function(){
+			event.preventDefault();
+			function hasWhiteSpace(s) {
+				  return s.indexOf(' ') >= 0;
+			}
+			function ValidateEmail(inputText)
+			{
+				var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+				var patt = new RegExp("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
+			    var res = patt.test(inputText);
+				/* @usc.edu is 8 characters */
+				if(res && inputText.substring(inputText.length - 8, inputText.length) == "usc.edu")
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
 			if ( document.querySelector('#email-register').value.trim().length == 0 ) {
-				document.querySelector('#email-register').classList.add('is-invalid');
-			} else {
-				document.querySelector('#email-register').classList.remove('is-invalid');
+				document.querySelector('.email-error').innerHTML="Email is required";
+			} 
+			else if (ValidateEmail(document.querySelector('#email-register').value)) {
+				console.log("HI");
+			}
+			else {
+				document.querySelector('.email-error').innerHTML="";
 			}
 
 			if ( document.querySelector('#username-register').value.trim().length == 0 ) {
-				document.querySelector('#username-register').classList.add('is-invalid');
-			} else {
-				document.querySelector('#username-register').classList.remove('is-invalid');
+				document.querySelector('.username-error').innerHTML="Username is required";
+			} 
+			else if(hasWhiteSpace(document.querySelector('#username-register').value)){
+				document.querySelector('.username-error').innerHTML="Username cannot have spaces";
+			}
+			else {
+				document.querySelector('.username-error').innerHTML="";
 			}
 			
 			if ( document.querySelector('#password-register').value.trim().length == 0 ) {
-				document.querySelector('#password-register').classList.add('is-invalid');
+				document.querySelector('.password-error').innerHTML="Password is required";
 			} else {
-				document.querySelector('#password-register').classList.remove('is-invalid');
+				document.querySelector('.password-error').innerHTML="";
 			}
-
-
-			return ( !document.querySelectorAll('.is-invalid').length > 0 );
+	
 		}
+		
 	</script>
 </body>
 </html>
