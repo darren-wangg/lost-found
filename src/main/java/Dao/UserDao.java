@@ -30,7 +30,9 @@ public class UserDao {
 			result = preparedStatement.executeUpdate();
 			
 		}
-		catch (Exception ex) {}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		return result;
 	}
 	
@@ -60,7 +62,9 @@ public class UserDao {
 			}
 			
 		}
-		catch (Exception ex) {}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		return false;
 	}
 	
@@ -86,7 +90,7 @@ public class UserDao {
 			
 		}
 		catch (Exception ex) {
-			
+			ex.printStackTrace();
 		}
 		return user;
 	}

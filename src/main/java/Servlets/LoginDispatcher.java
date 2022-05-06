@@ -62,7 +62,9 @@ public class LoginDispatcher extends HttpServlet {
 				
 				response.sendRedirect("home.jsp");
 			}
-		} catch (Exception e) {		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     /**
