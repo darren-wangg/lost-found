@@ -13,7 +13,7 @@
 		<div class="row">
 			<h1 class="col-12 mt-4 mb-4">Logout</h1>
 			<div class="col-12">You are now logged out.</div>
-			<div class="col-12 mt-3">You can go to <a href="home.php">home page</a> or <a href="login.php">log in</a> again.</div>
+			<div class="col-12 mt-3">You can go to <a href="home.jsp">home page</a> or <a href="login.jsp">log in</a> again.</div>
 
 		</div> <!-- .row -->
 	</div> <!-- .container -->

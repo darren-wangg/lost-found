@@ -11,8 +11,8 @@
 <body>
     <nav class="navbar navbar-custom navbar-expand-md navbar-expand-lg navbar-light" style="background-color: #B24256" >
         <div class="container-fluid">
-            <a class="navbar-brand navbar-brand-custom" href="home.php">
-                🥀
+            <a class="navbar-brand navbar-brand-custom" href="home.jsp">
+                <img src="images/rose.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 <span style="color: #efc9d2">Lost n' Found Connections</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,16 +21,16 @@
             <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link nav-link-custom" aria-current="page" href="home.php">Home</a>
+                <a class="nav-link nav-link-custom" aria-current="page" href="home.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="post.php">+ Create Post</a>
+                <a class="nav-link nav-link-custom" href="post.jsp">+ Create Post</a>
                 </li>
             </ul>
             <span class="navbar-text">
-                    <a class="login-register nav-link-custom" href="login.php">Login/Register</a>
+                    <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
                     <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
-                    <a class="p-2 login-register nav-link-custom" href="logout.php">Logout</a>
+                    <a class="p-2 login-register nav-link-custom" href="logout.jsp">Logout</a>
             </span>
             </div>
         </div>
@@ -38,7 +38,7 @@
     <div class="container login-container">
         <div class="row h-100 inputs-div align-items-center">
             <div class="column my-auto">
-                <img src="images/rose.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
                 <form method="POST" action="register.php">
                     <label for="email-register"></label>
                     <input type="text" id="email-register" name="email-register" placeholder="Email"><br><br>

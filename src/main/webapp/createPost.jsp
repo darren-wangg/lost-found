@@ -17,35 +17,32 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-expand-lg navbar-light" style="background-color: #FF9736" >
-    <div class="container-fluid">
-        <a class="navbar-brand" href="home.php">
-            <img src="images/logo-graphic.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            Stamina
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="home.php">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="view.php">View</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="post.php">+ Add Workout</a>
-            </li>
-        </ul>
-        <span class="navbar-text">
-                <a class="login-register" href="login.php">Login/Register</a>
-                <a class="p-2 hello-username"><span style="color:#FFFFFF">Hi username!</span></a>
-                <a class="p-2 login-register" href="logout.php">Logout</a>
-        </span>
+    <nav class="navbar navbar-custom navbar-expand-md navbar-expand-lg navbar-light" style="background-color: #B24256" >
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-custom" href="home.jsp">
+                <img src="images/rose.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <span style="color: #efc9d2">Lost n' Found Connections</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link nav-link-custom" aria-current="page" href="home.jsp">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link nav-link-custom" href="post.jsp">+ Create Post</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                    <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
+                    <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
+                    <a class="p-2 login-register nav-link-custom" href="logout.jsp">Logout</a>
+            </span>
+            </div>
         </div>
-    </div>
-  </nav>
+      </nav>
     <div class="container post-container">
         <div class="row h-100 inputs-div align-items-center">
             <div class="column my-auto">
