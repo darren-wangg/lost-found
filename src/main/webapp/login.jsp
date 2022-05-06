@@ -47,7 +47,14 @@
                   <input type="password" id="password" name="password" placeholder="Password">
                   <p id="password-error" class="invalid-feedback">Password is required.</p>
                   <div class="font-italic text-danger">
+                  
                     <!-- Show errors here. -->
+		   			<!-- set er as whatever getAttribute returns from setAttribute("error", error)-->
+		   			<!-- JSP tags connect page to Java backend aka servlet.java -->
+		   			<% String er = (String) request.getAttribute("error");
+					/* prints out the correct error from the servlet */
+					if (er != null) out.println(er);%>
+					
                   </div>
                   <input id="login-submit-btn" type="submit" value="Login">
               </form>

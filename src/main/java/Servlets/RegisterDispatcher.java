@@ -58,12 +58,12 @@ public class RegisterDispatcher extends HttpServlet {
 				userDao.registerUser(user);
 				
 				// Create cookies
-				/*Cookie c = new Cookie("username", username);
-				Cookie c2 = new Cookie("email", email);
-				c.setMaxAge(60*60);
-				c2.setMaxAge(60*60);
-				response.addCookie(c);
-				response.addCookie(c2);*/
+//				Cookie c = new Cookie("username", username);
+//				Cookie c2 = new Cookie("email", email);
+//				c.setMaxAge(60*60);
+//				c2.setMaxAge(60*60);
+//				response.addCookie(c);
+//				response.addCookie(c2);
 				
 				response.sendRedirect("login.jsp");
 			}

@@ -35,7 +35,6 @@ public class UserDao {
 		catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		System.out.println(username);
 		return username;
     }
 	
@@ -92,7 +91,8 @@ public class UserDao {
 		return false;
 	}
 	
-	public User login(User user) throws ClassNotFoundException, SQLException {
+	// Returns 0 if success, 1 if user does not exist, 2 if password does not match
+	public int login(User user) throws ClassNotFoundException, SQLException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
@@ -106,6 +106,10 @@ public class UserDao {
 				if(user.getPassword().equals(resultSet.getString("password_"))) {
 					String email = resultSet.getString("email");
 					user.setEmail(email);
+					return 0;
+				}
+				else {
+					return 2;
 				}
 			}
 			
@@ -114,7 +118,7 @@ public class UserDao {
 		catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return user;
+		return 1;
 	}
 
 //	public boolean googleLogin(User user) throws SQLException, ClassNotFoundException {
