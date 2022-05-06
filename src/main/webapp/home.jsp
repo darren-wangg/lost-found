@@ -21,7 +21,7 @@
       style="background-color: #4267b2"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="home.jsp"> 🥀 </a>
+        <img src="images/rose.png" width="30" height="30" class="d-inline-block align-top" alt="">
         <button
           class="navbar-toggler"
           type="button"
