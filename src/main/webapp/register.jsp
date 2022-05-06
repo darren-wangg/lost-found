@@ -24,7 +24,7 @@
                 <a class="nav-link nav-link-custom" aria-current="page" href="home.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="post.jsp">+ Create Post</a>
+                <a class="nav-link nav-link-custom" href="createPost.jsp">+ Create Post</a>
                 </li>
             </ul>
             <span class="navbar-text">
