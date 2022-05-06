@@ -50,7 +50,7 @@ public class RegisterDispatcher extends HttpServlet {
         try {
         	response.setContentType("text/html");
 			if(userDao.userExists(user)) {
-				request.setAttribute("error", true);
+				request.setAttribute("error", "User already exist.");
 		    	request.getRequestDispatcher("register.jsp").include(request, response);
 		    	return;
 			}

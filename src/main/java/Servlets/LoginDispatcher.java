@@ -40,14 +40,14 @@ public class LoginDispatcher extends HttpServlet {
     	
     	try {
         	User user = new User();
-        	user.setEmail(request.getParameter("username"));
+        	user.setUsername(request.getParameter("username"));
         	user.setPassword(request.getParameter("password"));
         	
     		// Check if user already exists
     		response.setContentType("text/html");
 			user = userDao.login(user);
 			if(user.getEmail() == null || user.getEmail().contentEquals("")) {
-				request.setAttribute("error", true);
+				request.setAttribute("error", "User does not exist.");
 		    	request.getRequestDispatcher("login.jsp").include(request, response);
 			}
 			else {
@@ -62,7 +62,9 @@ public class LoginDispatcher extends HttpServlet {
 				
 				response.sendRedirect("home.jsp");
 			}
-		} catch (Exception e) {		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     /**
