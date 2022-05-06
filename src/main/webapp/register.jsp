@@ -52,7 +52,7 @@
                     </div>
                     <input id="register-submit-btn" type="submit" value="Register">
                 </form>
-                <p class="login-prompt"><a href="login.php">Already have an account</a></p>
+                <p class="login-prompt"><a href="login.jsp">Already have an account?</a></p>
             </div>
         </div>
     </div>
