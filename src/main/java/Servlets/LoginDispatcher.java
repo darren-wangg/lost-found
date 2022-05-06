@@ -40,24 +40,27 @@ public class LoginDispatcher extends HttpServlet {
     	
     	try {
         	User user = new User();
-        	user.setEmail(request.getParameter("email"));
+        	user.setEmail(request.getParameter("username"));
         	user.setPassword(request.getParameter("password"));
         	
     		// Check if user already exists
     		response.setContentType("text/html");
 			user = userDao.login(user);
-			if(user.getName() == null || user.getName().contentEquals("")) {
+			if(user.getEmail() == null || user.getEmail().contentEquals("")) {
 				request.setAttribute("error", true);
-		    	request.getRequestDispatcher("auth.jsp").include(request, response);
+		    	request.getRequestDispatcher("login.jsp").include(request, response);
 			}
 			else {
-				// Create cookie
-				String nameNoSpace = user.getName().replaceAll(" ", "_");
-				Cookie c = new Cookie("name", nameNoSpace);
+				// Create cookies
+				String username = user.getUsername();
+				Cookie c = new Cookie("username", username);
+				Cookie c2 = new Cookie("email", request.getParameter("email"));
 				c.setMaxAge(60*60);
+				c2.setMaxAge(60*60);
 				response.addCookie(c);
+				response.addCookie(c2);
 				
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("home.jsp");
 			}
 		} catch (Exception e) {		}
     }

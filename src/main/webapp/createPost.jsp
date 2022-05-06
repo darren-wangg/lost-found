@@ -47,18 +47,17 @@
         <div class="row h-100 inputs-div align-items-center">
             <div class="column my-auto">
                 <img id="face1-login" src="images/rose.png"/>
-                <form id="form" method="POST" action="createPost.jsp">
+                <form id="form" method="POST" action="home.jsp" width="40" height="40"> <br>
                 	<label for="post"></label>
                 	<textarea id="post-text" name = "post-text" rows="10" cols = "70" placeholder="Write post here. . ."></textarea>
+                	<div class="error">Error message</div>
                 	<br><br>
                 	<input type="submit" value="Post">
-                	<div class="error">Error message</div>
-                    
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
                     </div>
                 </form>
-                <p class="login-prompt"><a href="login.php">Don't have an account?</a></p>
+                <p class="login-prompt"><a href="login.jsp">Don't have an account?</a></p>
             </div>
         </div>
     </div>

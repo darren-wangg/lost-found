@@ -23,7 +23,7 @@ public class LikeDao {
 			PreparedStatement preparedStatement = con.prepareStatement(insert);
 			preparedStatement.setString(1, like.getPostID());
 			preparedStatement.setString(2, like.getProfileEmail());
-			preparedStatement.setString(3, like.getCreatedTime());
+			preparedStatement.setTimestamp(3, like.getCreatedTime());
 			
 			result = preparedStatement.executeUpdate();
 			
