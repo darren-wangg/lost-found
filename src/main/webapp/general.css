@@ -22,8 +22,7 @@ body {
     text-decoration: none;
 }
 .navbar {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 15px;
 }
 
 /* NEW PAGE BEGINNING */
@@ -79,6 +78,7 @@ body {
 .face3-home img {
     padding-left: 15px;
     width: 100px;
+    filter: invert(41%) sepia(69%) saturate(421%) hue-rotate(182deg) brightness(86%) contrast(106%);
 }
 .circles-div {
     position: absolute;
@@ -88,10 +88,11 @@ body {
     align-items: center;
 }
 .circles {
-    width: 33%;
+    width: 30%;
     margin: 20px;
     margin-left: 40px;
     margin-bottom: 30px;
+    filter: invert(41%) sepia(69%) saturate(421%) hue-rotate(182deg) brightness(86%) contrast(106%);
 }
 .circles:hover {
     animation-duration: 2s;
