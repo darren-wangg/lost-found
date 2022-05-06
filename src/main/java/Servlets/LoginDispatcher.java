@@ -60,7 +60,7 @@ public class LoginDispatcher extends HttpServlet {
 				response.addCookie(c);
 				response.addCookie(c2);
 				
-				response.sendRedirect("home.jsp");
+				response.sendRedirect("createPost.jsp");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
