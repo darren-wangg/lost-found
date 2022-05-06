@@ -18,7 +18,7 @@
   <body>
     <nav
       class="navbar navbar-expand-md navbar-expand-lg navbar-light"
-      style="background-color: #4267b2"
+      style="background-color: #B24256"
     >
       <div class="container-fluid">
         <img src="images/rose.png" width="30" height="30" class="d-inline-block align-top" alt="">
