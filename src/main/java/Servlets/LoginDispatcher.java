@@ -45,11 +45,20 @@ public class LoginDispatcher extends HttpServlet {
         	
     		// Check if user already exists
     		response.setContentType("text/html");
-			user = userDao.login(user);
+    		
+			int loginResponse = userDao.login(user);
+			// Error
 			if(user.getEmail() == null || user.getEmail().contentEquals("")) {
-				request.setAttribute("error", "User does not exist.");
+				String errorMessage = "";
+				// User does not exist 
+				if(loginResponse == 1) errorMessage = "User does not exist.";
+				// Incorrect password
+				else if(loginResponse == 2) errorMessage = "Incorrect password.";
+					
+				request.setAttribute("error", errorMessage);
 		    	request.getRequestDispatcher("login.jsp").include(request, response);
 			}
+			// Successful login
 			else {
 				// Create cookies
 				String username = user.getUsername();
