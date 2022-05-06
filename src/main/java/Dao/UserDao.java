@@ -15,7 +15,7 @@ public class UserDao {
     private static final String username_ = Constant.DBUserName;
     private static final String password_ = Constant.DBPassword;
     
-    public String getUsername(String email) throws ClassNotFoundException, SQLException{
+    public static String getUsername(String email) throws ClassNotFoundException, SQLException{
     	String username = "";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

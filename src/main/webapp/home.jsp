@@ -69,20 +69,33 @@
     	else posts = (ArrayList<Post>)request.getAttribute("posts");
     	for(Post p: posts){%>
  
-    	  <ul class="list-group list-group-dividered list-group-full">
-            <li class="list-group-item">
-              <div class="media">
-                <div class="media-left">
-                  <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="media-body">
-                  <small class="text-muted pull-right"><%=p.getCreatedDatetime()%></small>
-                  <h4 class="media-heading">@<%=p.getProfileEmail()%></h4>
-                  <div><%=p.getWrittenText()%></div>
-                </div>
-              </div>
-            </li>
-          </ul>		
+ <div class="container">
+	<div class="row">
+	    <div class="col-md-8">
+	        <div class="media g-mb-30 media-comment">
+	            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Image Description">
+	            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+	              <div class="g-mb-15">
+	                <h5 class="h5 g-color-gray-dark-v1 mb-0">@<%=p.getProfileEmail()%></h5>
+	                <span class="g-color-gray-dark-v4 g-font-size-12"><%= p.getCreatedDatetime()%></span>
+	              </div>
+	        
+	              <p><%= p.getWrittenText()%></p>
+	        
+	              <ul class="list-inline d-sm-flex my-0">
+	                <li class="list-inline-item g-mr-20">
+	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+	                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+	                    178
+	                  </a>
+	                </li>
+	              
+	              </ul>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
 		<%}%>
 			
     
