@@ -46,19 +46,14 @@
     <div class="container post-container">
         <div class="row h-100 inputs-div align-items-center">
             <div class="column my-auto">
-                <img id="face1-login" src="images/face1.png"/>
+                <img id="face1-login" src="images/rose.png"/>
                 <form id="form" method="POST" action="createPost.jsp">
                 	<label for="post"></label>
                 	<textarea id="post-text" name = "post-text" rows="10" cols = "70" placeholder="Write post here. . ."></textarea>
                 	<br><br>
                 	<input type="submit" value="Post">
                 	<div class="error">Error message</div>
-                    <!-- <label for="email-register"></label>
-                    <input type="text" id="email-register" name="email-register" placeholder="Email"><br><br>
-                    <label for="username-register"></label>
-                    <input type="text" id="username-register" name="username-register" placeholder="Username"><br><br>
-                    <label for="password-register"></label>
-                    <input type="text" id="password-register" name="password-register" placeholder="Password"><br><br> -->
+                    
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
                     </div>
