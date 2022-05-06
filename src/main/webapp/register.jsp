@@ -41,11 +41,14 @@
                 <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
                 <form method="POST" action="login.jsp">
                     <label for="email-register"></label>
-                    <input type="text" id="email-register" name="email-register" placeholder="Email"><br><br>
+                    <input type="text" id="email-register" name="email-register" placeholder="Email">
+                    <p id="password-error" class="invalid-feedback">Email is required.</p>
                     <label for="username-register"></label>
-                    <input type="text" id="username-register" name="username-register" placeholder="Username"><br><br>
+                    <input type="text" id="username-register" name="username-register" placeholder="Username">
+                    <p id="password-error" class="invalid-feedback">Username is required.</p>
                     <label for="password-register"></label>
-                    <input type="text" id="password-register" name="password-register" placeholder="Password"><br><br>
+                    <input type="text" id="password-register" name="password-register" placeholder="Password">
+                    <p id="password-error" class="invalid-feedback">Password is required.</p>
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
                     
@@ -57,5 +60,29 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script>
+		document.querySelector('form').onsubmit = function(){
+			if ( document.querySelector('#email-register').value.trim().length == 0 ) {
+				document.querySelector('#email-register').classList.add('is-invalid');
+			} else {
+				document.querySelector('#email-register').classList.remove('is-invalid');
+			}
+
+			if ( document.querySelector('#username-register').value.trim().length == 0 ) {
+				document.querySelector('#username-register').classList.add('is-invalid');
+			} else {
+				document.querySelector('#username-register').classList.remove('is-invalid');
+			}
+			
+			if ( document.querySelector('#password-register').value.trim().length == 0 ) {
+				document.querySelector('#password-register').classList.add('is-invalid');
+			} else {
+				document.querySelector('#password-register').classList.remove('is-invalid');
+			}
+
+
+			return ( !document.querySelectorAll('.is-invalid').length > 0 );
+		}
+	</script>
 </body>
 </html>
