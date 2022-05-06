@@ -14,6 +14,30 @@ public class UserDao {
 	private static final String url = "jdbc:mysql://localhost:3306/lost_n_found";
     private static final String username_ = Constant.DBUserName;
     private static final String password_ = Constant.DBPassword;
+    
+    public String getUsername(String email) throws ClassNotFoundException, SQLException{
+    	String username = "";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+	    	Connection con = DriverManager.getConnection(url, username_, password_);
+	    	
+	    	String select = "SELECT * FROM user_profile WHERE email = ?";
+			PreparedStatement preparedStatement = con.prepareStatement(select);	
+			preparedStatement.setString(1, email);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()){
+				username = resultSet.getString("username");
+			}
+			
+			
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		System.out.println(username);
+		return username;
+    }
 	
 	public int registerUser(User user) throws ClassNotFoundException, SQLException {
 		int result = 0;
