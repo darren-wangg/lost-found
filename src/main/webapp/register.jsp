@@ -48,11 +48,8 @@
                     <p id="username-error" class="username-error text-danger"></p>
                     <label for="password-register"></label>
                     <input type="password" id="password-register" name="password-register" placeholder="Password">
-<<<<<<< HEAD
                     <p id="password-error" class="password-error text-danger"></p>
-=======
                     <p id="password-error" class="invalid-feedback">Password is required.</p>
->>>>>>> 4fc0586522137b85785716b95dc23b3124b4b33b
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
 				   			<!-- set er as whatever getAttribute returns from setAttribute("error", error)-->
