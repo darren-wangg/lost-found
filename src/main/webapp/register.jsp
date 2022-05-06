@@ -39,7 +39,7 @@
         <div class="row h-100 inputs-div align-items-center">
             <div class="column my-auto">
                 <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
-                <form method="POST" action="register.php">
+                <form method="POST" action="login.jsp">
                     <label for="email-register"></label>
                     <input type="text" id="email-register" name="email-register" placeholder="Email"><br><br>
                     <label for="username-register"></label>
