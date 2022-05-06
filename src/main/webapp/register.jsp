@@ -47,7 +47,7 @@
                     <input type="text" id="username-register" name="username-register" placeholder="Username">
                     <p id="password-error" class="invalid-feedback">Username is required.</p>
                     <label for="password-register"></label>
-                    <input type="text" id="password-register" name="password-register" placeholder="Password">
+                    <input type="password" id="password-register" name="password-register" placeholder="Password">
                     <p id="password-error" class="invalid-feedback">Password is required.</p>
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
