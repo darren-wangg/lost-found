@@ -1,5 +1,7 @@
 package Util;
 
+import Dao.PostDao;
+
 public class Post {
 	private String id;
 	private String profile_email;
@@ -48,4 +50,6 @@ public class Post {
 	public void setCreatedDatetime(String cd) {
 		created_datetime = cd;
 	}
+	
+	
 }

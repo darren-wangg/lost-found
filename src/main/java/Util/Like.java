@@ -13,9 +13,7 @@ public class Like {
 		created_time = created_time_;
 	}
 	
-	public Like() {
-		
-	}
+	public Like() {}
 	
 	public String getId() {
 		return id;
