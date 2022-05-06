@@ -41,9 +41,11 @@
               <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
               <form method="POST" action="login.php">
                   <label for="username"></label>
-                  <input type="text" id="username" name="username" placeholder="Username"><br><br>
+                  <input type="text" id="username" name="username" placeholder="Username">
+                  <p id="password-error" class="invalid-feedback">Username is required.</p>
                   <label for="password"></label>
-                  <input type="password" id="password" name="password" placeholder="Password"><br><br>
+                  <input type="password" id="password" name="password" placeholder="Password">
+                  <p id="password-error" class="invalid-feedback">Password is required.</p>
                   <div class="font-italic text-danger">
                     <!-- Show errors here. -->
                   </div>
@@ -54,5 +56,22 @@
       </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script>
+		document.querySelector('form').onsubmit = function(){
+			if ( document.querySelector('#username').value.trim().length == 0 ) {
+				document.querySelector('#username').classList.add('is-invalid');
+			} else {
+				document.querySelector('#username').classList.remove('is-invalid');
+			}
+
+			if ( document.querySelector('#password').value.trim().length == 0 ) {
+				document.querySelector('#password').classList.add('is-invalid');
+			} else {
+				document.querySelector('#password').classList.remove('is-invalid');
+			}
+
+			return ( !document.querySelectorAll('.is-invalid').length > 0 );
+		}
+	</script>
 </body>
 </html>
