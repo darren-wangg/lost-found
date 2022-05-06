@@ -1,28 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
 
 html, body {
     margin: 0;
     padding: 0;
+    background-color: #f0dade;
 }
 
 body {
     font-family: 'Inter', sans-serif;
+    /* font-family: 'Comic Neue', cursive; */
 }
 /**** NAVBAR ****/
 /* color of tabs */
 .navbar-nav .nav-item .nav-link{
-    color: #D5ECE0;
+    color: #e899a6;
 }
 .navbar-nav .nav-item .nav-link:hover {
     color: #03256F;
 }
+/* .navbar-custom {
+    height: 70px;
+}
+.navbar-brand-custom{
+    font-size: 30px;
+}
+.nav-link-custom {
+    font-size: 20px;
+} */
 
 .login-register, .hello-username{
     /* color: red; */
     text-decoration: none;
 }
 .navbar {
-    padding: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* NEW PAGE BEGINNING */
@@ -78,7 +91,6 @@ body {
 .face3-home img {
     padding-left: 15px;
     width: 100px;
-    filter: invert(41%) sepia(69%) saturate(421%) hue-rotate(182deg) brightness(86%) contrast(106%);
 }
 .circles-div {
     position: absolute;
@@ -88,11 +100,10 @@ body {
     align-items: center;
 }
 .circles {
-    width: 30%;
+    width: 33%;
     margin: 20px;
     margin-left: 40px;
     margin-bottom: 30px;
-    filter: invert(41%) sepia(69%) saturate(421%) hue-rotate(182deg) brightness(86%) contrast(106%);
 }
 .circles:hover {
     animation-duration: 2s;
@@ -135,9 +146,11 @@ body {
 
 /* NEW PAGE BEGINNING */
 /* LOGIN PAGE */
-
+::placeholder {
+    color: #3a5138;
+}
 #username, #password {
-    background-color: #D5ECE0;
+    background-color: #a6c192;
     border: none;
     border-radius: 8px;
     padding: 10px;
@@ -146,15 +159,15 @@ body {
 }
 #login-submit-btn, #register-submit-btn, #next-btn {
     background-color: #FFFFFF;
-    border: 1.5px solid #03256F;
+    border: 1.5px solid #587f56;
     border-radius: 8px;
-    color: #03256F;
+    color: #587f56;
     padding: 10px;
     padding-right: 30px;
     padding-left: 30px;
 }
 #login-submit-btn:hover, #register-submit-btn:hover, #next-btn:hover {
-    background-color: #03256F;
+    background-color: #587f56;
     color: #FFFFFF;
 }
 .inputs-div {
@@ -168,8 +181,11 @@ body {
 }
 .login-prompt, .reg-prompt {
     padding-top: 30px;
-    color: #03256F;
+    color: #B24256;
 }
+/* #link {
+
+} */
 .login-container, .add-container {
     height: 720px; 
 }
@@ -181,7 +197,7 @@ body {
 /* NEW PAGE BEGINNING */
 /* REGISTER PAGE */
 #email-register, #username-register, #password-register {
-    background-color: #D5ECE0;
+    background-color: #a6c192;
     border: none;
     border-radius: 8px;
     padding: 10px;
