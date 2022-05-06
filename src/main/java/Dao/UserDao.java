@@ -80,9 +80,7 @@ public class UserDao {
 			
 			if(resultSet.next()){
 				if(user.getPassword().equals(resultSet.getString("password_"))) {
-					String id = resultSet.getString("id");
 					String email = resultSet.getString("email");
-					user.setId(id);
 					user.setEmail(email);
 				}
 			}
