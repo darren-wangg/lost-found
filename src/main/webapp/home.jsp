@@ -16,41 +16,32 @@
     <link rel="stylesheet" type="text/css" href="general.css" />
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-md navbar-expand-lg navbar-light"
-      style="background-color: #B24256"
-    >
-      <div class="container-fluid">
-        <img src="images/rose.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="home.jsp"
-                >Home</a
-              >
-            </li>
-          </ul>
-          <span class="navbar-text">
-            <a class="login-register" href="login.jsp">Login/Register</a>
-            <a class="p-2 hello-username" style="color: #ffffff"
-              >Hi ${username}!</a
-            >
-            <a class="p-2 login-register" href="logout.jsp">Logout</a>
-          </span>
+    <nav class="navbar navbar-custom navbar-expand-md navbar-expand-lg navbar-light" style="background-color: #B24256" >
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-custom" href="home.jsp">
+                <img src="images/rose.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <span style="color: #efc9d2">Lost n' Found Connections</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link nav-link-custom" aria-current="page" href="home.jsp">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link nav-link-custom" href="createPost.jsp">+ Create Post</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                    <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
+                    <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
+                    <a class="p-2 login-register nav-link-custom" href="logout.jsp">Logout</a>
+            </span>
+            </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     <div class="parent-container">
       <div id="header-container">
         <p id="motto">Lost connections motto here...</p>

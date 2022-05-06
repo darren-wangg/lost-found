@@ -52,14 +52,3 @@ CREATE TABLE friendship (
     profile_accept VARCHAR(15) REFERENCES user_profile(id)
 );
 
-
-
-INSERT INTO user_post (id, profile_email, written_text, created_datetime)
-	VALUES	('1', 'agma@usc.edu', 'hello', '2002-5-5 18:52:59.997');
-		
-INSERT INTO post_like (id, post_id, profile_email, created_time)
-	VALUES	('1', '1',  'agma@usc.edu', '2002-5-5 18:52:59.997');
-    
-call GetLikes('1', @likes);
-select @likes;
-select*from post_like;

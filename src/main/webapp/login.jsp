@@ -39,7 +39,7 @@
       <div class="row h-100 inputs-div align-items-center">
           <div class="column my-auto">
               <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
-              <form method="POST" action="home.jsp">
+              <form method="POST" action="LoginDispatcher">
                   <label for="username"></label>
                   <input type="text" id="username" name="username" placeholder="Username">
                   <p id="password-error" class="invalid-feedback">Username is required.</p>
