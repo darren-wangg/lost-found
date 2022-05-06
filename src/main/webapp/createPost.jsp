@@ -46,11 +46,12 @@
     <div class="container post-container">
         <div class="row h-100 inputs-div align-items-center">
             <div class="column my-auto">
-                <img id="face1-login" src="images/rose.png"/>
+            	<br><br>
+                <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
                 <form id="form" method="POST" action="home.jsp" width="40" height="40"> <br>
                 	<label for="post"></label>
                 	<textarea id="post-text" name = "post-text" rows="10" cols = "70" placeholder="Write post here. . ."></textarea>
-                	<div class="error">Error message</div>
+                	<p id="password-error" class="invalid-feedback">Post text cannot be empty.</p>
                 	<br><br>
                 	<input type="submit" value="Post">
                     <div class="font-italic text-danger">
@@ -62,21 +63,18 @@
         </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    	document.querySelector("#form").onsubmit = function(){
-    		event.preventDefault();
-    		
-    		let postText = document.querySelector('#post-text').value().trim();
-    		if(postText.length <= 0){
-    			/* console.log("Post must include text!"); */
-				document.querySelector("#post-text").nextElementSibling.innerHTML = "Post must include text";
-				document.querySelector("#post-text").nextElementSibling.style.visibility = "visible";
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+		document.querySelector('form').onsubmit = function(){
+			if ( document.querySelector('#post-text').value.trim().length == 0 ) {
+				document.querySelector('#post-text').classList.add('is-invalid');
+			} else {
+				document.querySelector('#post-text').classList.remove('is-invalid');
 			}
-			else{
-				document.querySelector("#post-text").nextElementSibling.style.visibility = "hidden";
-    		}
-    	}
-    
-    </script>
+
+			return ( !document.querySelectorAll('.is-invalid').length > 0 );
+		}
+	</script>
+
 </body>
 </html>
