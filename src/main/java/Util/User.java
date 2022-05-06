@@ -2,13 +2,11 @@ package Util;
 
 public class User {
 	private String email;
-	private String name;
 	private String id;
 	private String username;
 	private String password;
 	
-	public User(String name_, String email_, String username_, String password_) {
-		name = name_;
+	public User(String email_, String username_, String password_) {
 		email = email_;
 		password = password_;
 		username = username_;
@@ -34,12 +32,6 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getPassword() {
 		return password;

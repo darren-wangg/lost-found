@@ -22,7 +22,7 @@ public class PostDao {
 			PreparedStatement preparedStatement = con.prepareStatement(insert);
 			preparedStatement.setString(1, post.getProfileEmail());
 			preparedStatement.setString(2, post.getWrittenText());
-			preparedStatement.setString(3, post.getCreatedDatetime());
+			preparedStatement.setTimestamp(3, post.getCreatedDatetime());
 			
 			result = preparedStatement.executeUpdate();
 			
@@ -45,7 +45,7 @@ public class PostDao {
 				String id = resultSet.getString("id");
 				String profile_email = resultSet.getString("profile_email");
 				String written_text = resultSet.getString("written_text");
-				String created_datetime = resultSet.getString("created_datetime");
+				Timestamp created_datetime = resultSet.getTimestamp("created_datetime");
 				Post post = new Post(id, profile_email, written_text, created_datetime);
 				posts.add(post);
 			}

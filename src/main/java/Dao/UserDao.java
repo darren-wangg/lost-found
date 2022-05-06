@@ -21,13 +21,11 @@ public class UserDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
 	    	
-	    	String insert = "INSERT INTO user_profile (email, name_, id, username, password_) VALUES (?, ?, ?, ?, ?);";
+	    	String insert = "INSERT INTO user_profile (email, username, password_) VALUES (?, ?, ?);";
 			PreparedStatement preparedStatement = con.prepareStatement(insert);
 			preparedStatement.setString(1, user.getEmail());
-			preparedStatement.setString(2, user.getName());
-			preparedStatement.setString(3, user.getId());
-			preparedStatement.setString(4, user.getUsername());
-			preparedStatement.setString(5, user.getPassword());
+			preparedStatement.setString(2, user.getUsername());
+			preparedStatement.setString(3, user.getPassword());
 			
 			result = preparedStatement.executeUpdate();
 			
@@ -71,19 +69,17 @@ public class UserDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
 	    	
-	    	String select = "SELECT * FROM user_profile WHERE email = ?";
+	    	String select = "SELECT * FROM user_profile WHERE username = ?";
 			PreparedStatement preparedStatement = con.prepareStatement(select);	
-			preparedStatement.setString(1, user.getEmail());
+			preparedStatement.setString(1, user.getUsername());
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()){
 				if(user.getPassword().equals(resultSet.getString("password_"))) {
-					String name = resultSet.getString("name_");
 					String id = resultSet.getString("id");
-					String username = resultSet.getString("username");
-					user.setName(name);
+					String email = resultSet.getString("email");
 					user.setId(id);
-					user.setUsername(username);
+					user.setEmail(email);
 				}
 			}
 			
@@ -95,33 +91,33 @@ public class UserDao {
 		return user;
 	}
 
-	public boolean googleLogin(User user) throws SQLException, ClassNotFoundException {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	    	Connection con = DriverManager.getConnection(url, username_, password_);
-	    	
-	    	String select = "SELECT * FROM user_profile WHERE email = ?";
-			PreparedStatement preparedStatement = con.prepareStatement(select);	
-			preparedStatement.setString(1, user.getEmail());
-			ResultSet resultSet = preparedStatement.executeQuery();
-			
-			// if created account with password, google login fail
-			if(resultSet.next()){
-				if(resultSet.getString("password_") != null) {
-					return false;
-				}
-			}
-			else {
-				String insert = "INSERT INTO user_profile (email, name_) VALUES (?, ?);";
-				PreparedStatement preparedStatement2 = con.prepareStatement(insert);
-				preparedStatement2.setString(1, user.getEmail());
-				preparedStatement2.setString(2, user.getName());
-				
-				preparedStatement2.executeUpdate();
-			}
-		}
-		catch (Exception ex) {}
-		return true;
-    	
-	}
+//	public boolean googleLogin(User user) throws SQLException, ClassNotFoundException {
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//	    	Connection con = DriverManager.getConnection(url, username_, password_);
+//	    	
+//	    	String select = "SELECT * FROM user_profile WHERE email = ?";
+//			PreparedStatement preparedStatement = con.prepareStatement(select);	
+//			preparedStatement.setString(1, user.getEmail());
+//			ResultSet resultSet = preparedStatement.executeQuery();
+//			
+//			// if created account with password, google login fail
+//			if(resultSet.next()){
+//				if(resultSet.getString("password_") != null) {
+//					return false;
+//				}
+//			}
+//			else {
+//				String insert = "INSERT INTO user_profile (email, name_) VALUES (?, ?);";
+//				PreparedStatement preparedStatement2 = con.prepareStatement(insert);
+//				preparedStatement2.setString(1, user.getEmail());
+//				preparedStatement2.setString(2, user.getName());
+//				
+//				preparedStatement2.executeUpdate();
+//			}
+//		}
+//		catch (Exception ex) {}
+//		return true;
+//    	
+//	}
 }

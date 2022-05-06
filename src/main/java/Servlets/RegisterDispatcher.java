@@ -41,29 +41,31 @@ public class RegisterDispatcher extends HttpServlet {
     @Override
     protected synchronized void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String username = request.getParameter("username");
-        User user = new User(name, email, username, password);
+        User user = new User(email, username, password);
         
         // Check if user exists
         try {
         	response.setContentType("text/html");
 			if(userDao.userExists(user)) {
-				request.setAttribute("userRegistered", true);
-		    	request.getRequestDispatcher("auth.jsp").include(request, response);
+				request.setAttribute("error", true);
+		    	request.getRequestDispatcher("register.jsp").include(request, response);
 		    	return;
 			}
 			else {
 				userDao.registerUser(user);
-				// Create cookie
-				String nameNoSpace = name.replaceAll(" ", "_");
-				Cookie c = new Cookie("name", nameNoSpace);
+				
+				// Create cookies
+				Cookie c = new Cookie("username", username);
+				Cookie c2 = new Cookie("email", email);
 				c.setMaxAge(60*60);
+				c2.setMaxAge(60*60);
 				response.addCookie(c);
-	
-				response.sendRedirect("index.jsp");
+				response.addCookie(c2);
+				
+				response.sendRedirect("home.jsp");
 			}
 		} catch (Exception e) {}
     }
