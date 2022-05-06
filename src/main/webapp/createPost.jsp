@@ -32,7 +32,7 @@
                 <a class="nav-link nav-link-custom" aria-current="page" href="home.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="post.jsp">+ Create Post</a>
+                <a class="nav-link nav-link-custom" href="createPost.jsp">+ Create Post</a>
                 </li>
             </ul>
             <span class="navbar-text">
@@ -46,24 +46,18 @@
     <div class="container post-container">
         <div class="row h-100 inputs-div align-items-center">
             <div class="column my-auto">
-                <img id="face1-login" src="images/face1.png"/>
-                <form id="form" method="POST" action="createPost.jsp">
+                <img id="face1-login" src="images/rose.png"/>
+                <form id="form" method="POST" action="home.jsp" width="40" height="40"> <br>
                 	<label for="post"></label>
                 	<textarea id="post-text" name = "post-text" rows="10" cols = "70" placeholder="Write post here. . ."></textarea>
+                	<div class="error">Error message</div>
                 	<br><br>
                 	<input type="submit" value="Post">
-                	<div class="error">Error message</div>
-                    <!-- <label for="email-register"></label>
-                    <input type="text" id="email-register" name="email-register" placeholder="Email"><br><br>
-                    <label for="username-register"></label>
-                    <input type="text" id="username-register" name="username-register" placeholder="Username"><br><br>
-                    <label for="password-register"></label>
-                    <input type="text" id="password-register" name="password-register" placeholder="Password"><br><br> -->
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
                     </div>
                 </form>
-                <p class="login-prompt"><a href="login.php">Don't have an account?</a></p>
+                <p class="login-prompt"><a href="login.jsp">Don't have an account?</a></p>
             </div>
         </div>
     </div>

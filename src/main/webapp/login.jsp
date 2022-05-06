@@ -24,7 +24,7 @@
                 <a class="nav-link nav-link-custom" aria-current="page" href="home.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link nav-link-custom" href="post.jsp">+ Create Post</a>
+                <a class="nav-link nav-link-custom" href="createPost.jsp">+ Create Post</a>
                 </li>
             </ul>
             <span class="navbar-text">
@@ -39,7 +39,7 @@
       <div class="row h-100 inputs-div align-items-center">
           <div class="column my-auto">
               <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
-              <form method="POST" action="login.php">
+              <form method="POST" action="home.jsp">
                   <label for="username"></label>
                   <input type="text" id="username" name="username" placeholder="Username"><br><br>
                   <label for="password"></label>
@@ -49,7 +49,7 @@
                   </div>
                   <input id="login-submit-btn" type="submit" value="Login">
               </form>
-              <p class="reg-prompt">Not registered? <a id="link" href="register.php">Register here.</a></p>
+              <p class="reg-prompt">Not registered? <a id="link" href="register.jsp">Register here.</a></p>
           </div>
       </div>
   </div>
