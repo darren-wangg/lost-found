@@ -11,12 +11,11 @@ public class Post {
 	private String created_datetime;
 	private Integer likes;
 	
-	public Post(String id_, String profile_email_, String written_text_, String created_datetime_, Integer likes_) {
+	public Post(String id_, String profile_email_, String written_text_, String created_datetime_) {
 		id = id_;
 		profile_email = profile_email_;
 		written_text = written_text_;
 		created_datetime = created_datetime_;
-		likes = likes_;
 	}
 	
 	//everytime we add a like, need to update like parameter with PostDao.getlikes() again
