@@ -41,11 +41,27 @@ public class PostDispatcher extends HttpServlet {
     	try {
     		if (request.getParameter("written_text") == "") {
 				request.setAttribute("error", "Post cannot be blank");
-		    	request.getRequestDispatcher("auth.jsp").include(request, response);
+		    	request.getRequestDispatcher("post.jsp").include(request, response);
     		}
+    		
         	Post post = new Post();
-        	post.setProfileEmail(request.getParameter("profile_email"));
+        	
+        	// Set email
+        	Cookie[] cookies = request.getCookies(); 
+        	String email_ = "";
+        	if(cookies != null) {
+        		for (Cookie aCookie : cookies) {
+        			if((aCookie.getName( )).equals("email")){
+        				email_ = aCookie.getValue();
+        			}
+        		}
+        	}
+        	post.setProfileEmail(email_);
+        	
+        	// Set text
         	post.setWrittenText(request.getParameter("written_text"));
+        	
+        	// Set timestamp
         	Long datetime = System.currentTimeMillis();
             Timestamp timestamp = new Timestamp(datetime);
         	post.setCreatedDatetime(timestamp);
