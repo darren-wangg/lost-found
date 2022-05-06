@@ -40,7 +40,7 @@ public class LoginDispatcher extends HttpServlet {
     	
     	try {
         	User user = new User();
-        	user.setEmail(request.getParameter("username"));
+        	user.setUsername(request.getParameter("username"));
         	user.setPassword(request.getParameter("password"));
         	
     		// Check if user already exists
