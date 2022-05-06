@@ -56,7 +56,7 @@
         <p id="motto">Lost connections motto here...</p>
         <h1 id="header-words">
           start connecting
-          <div class="face3-home"><img src="images/face3.png" /></div>
+          <div class="face3-home"><img src="images/rose.png"/></div>
         </h1>
       </div>
     </div>
