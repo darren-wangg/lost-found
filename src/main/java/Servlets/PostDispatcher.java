@@ -61,7 +61,7 @@ public class PostDispatcher extends HttpServlet {
         	post.setProfileEmail(email_);
         	
         	// Set text
-        	post.setWrittenText(request.getParameter("written_text"));
+        	post.setWrittenText(request.getParameter("post-text"));
         	
         	// Set timestamp
         	Long datetime = System.currentTimeMillis();
@@ -71,7 +71,6 @@ public class PostDispatcher extends HttpServlet {
         	response.setContentType("text/html");
 			postDao.post(post);
 			
-			System.out.println("posts");
 			ArrayList<Post> posts = PostDao.getPosts();
 			request.setAttribute("posts", posts);
 			request.getRequestDispatcher("home.jsp").include(request, response);

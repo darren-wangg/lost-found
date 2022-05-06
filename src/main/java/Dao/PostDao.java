@@ -33,7 +33,6 @@ public class PostDao {
 	
 	public static ArrayList<Post> getPosts() throws ClassNotFoundException, SQLException {
 		ArrayList<Post> posts = new ArrayList<Post>();
-		System.out.println("IN GETPOSTS()");
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
@@ -42,14 +41,13 @@ public class PostDao {
 			PreparedStatement preparedStatement = con.prepareStatement(select);	
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
-			if(resultSet.next()){
+			while(resultSet.next()){
 				String id = resultSet.getString("id");
 				String profile_email = resultSet.getString("profile_email");
 				String written_text = resultSet.getString("written_text");
 				Timestamp created_datetime = resultSet.getTimestamp("created_datetime");
 				Post post = new Post(id, profile_email, written_text, created_datetime);
 				posts.add(post);
-				System.out.println("post " + written_text);
 			}
 		}
 		catch (Exception ex) {}
