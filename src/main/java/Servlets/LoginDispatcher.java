@@ -47,7 +47,7 @@ public class LoginDispatcher extends HttpServlet {
     		response.setContentType("text/html");
 			user = userDao.login(user);
 			if(user.getEmail() == null || user.getEmail().contentEquals("")) {
-				request.setAttribute("error", true);
+				request.setAttribute("error", "User does not exist.");
 		    	request.getRequestDispatcher("login.jsp").include(request, response);
 			}
 			else {

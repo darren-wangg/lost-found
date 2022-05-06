@@ -50,7 +50,7 @@ public class RegisterDispatcher extends HttpServlet {
         try {
         	response.setContentType("text/html");
 			if(userDao.userExists(user)) {
-				request.setAttribute("error", true);
+				request.setAttribute("error", "User already exist.");
 		    	request.getRequestDispatcher("register.jsp").include(request, response);
 		    	return;
 			}
@@ -58,14 +58,14 @@ public class RegisterDispatcher extends HttpServlet {
 				userDao.registerUser(user);
 				
 				// Create cookies
-				/*Cookie c = new Cookie("username", username);
+				Cookie c = new Cookie("username", username);
 				Cookie c2 = new Cookie("email", email);
 				c.setMaxAge(60*60);
 				c2.setMaxAge(60*60);
 				response.addCookie(c);
-				response.addCookie(c2);*/
+				response.addCookie(c2);
 				
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("home.jsp");
 			}
 		} catch (Exception e) {}
     }

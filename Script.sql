@@ -6,8 +6,6 @@ USE lost_n_found;
 DROP TABLE IF EXISTS user_profile;
 CREATE TABLE user_profile (
   email VARCHAR(50) UNIQUE, 
-  name_ VARCHAR(50),
-  id VARCHAR(15) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(50),
   password_ VARCHAR(50)
 );
