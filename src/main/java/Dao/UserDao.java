@@ -43,8 +43,7 @@ public class UserDao {
 	    	
 	    	// Check if email already exist in database
 	    	String selectEmail = "SELECT * FROM user_profile WHERE email = ?";
-			PreparedStatement preparedStatement1 = con.prepareStatement(selectEmail);
-			System.out.println("hello");			
+			PreparedStatement preparedStatement1 = con.prepareStatement(selectEmail);		
 			preparedStatement1.setString(1, user.getEmail());
 			ResultSet resultSet1 = preparedStatement1.executeQuery();
 			
@@ -81,9 +80,7 @@ public class UserDao {
 			
 			if(resultSet.next()){
 				if(user.getPassword().equals(resultSet.getString("password_"))) {
-					String id = resultSet.getString("id");
 					String email = resultSet.getString("email");
-					user.setId(id);
 					user.setEmail(email);
 				}
 			}

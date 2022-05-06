@@ -30,7 +30,7 @@
             <span class="navbar-text">
                     <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
                     <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
-                    <a class="p-2 login-register nav-link-custom" href="logout.jsp">Logout</a>
+                    <a class="p-2 login-register nav-link-custom" href="Logout">Logout</a>
             </span>
             </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="row h-100 inputs-div align-items-center">
             <div class="column my-auto">
                 <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
-                <form method="POST" action="login.jsp">
+                <form method="POST" action="Register">
                     <label for="email-register"></label>
                     <input type="text" id="email-register" name="email-register" placeholder="Email">
                     <p id="password-error" class="email-error text-danger"></p>
@@ -48,7 +48,11 @@
                     <p id="username-error" class="username-error text-danger"></p>
                     <label for="password-register"></label>
                     <input type="password" id="password-register" name="password-register" placeholder="Password">
+<<<<<<< HEAD
                     <p id="password-error" class="password-error text-danger"></p>
+=======
+                    <p id="password-error" class="invalid-feedback">Password is required.</p>
+>>>>>>> 4fc0586522137b85785716b95dc23b3124b4b33b
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
 				   			<!-- set er as whatever getAttribute returns from setAttribute("error", error)-->

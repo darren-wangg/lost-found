@@ -37,14 +37,14 @@
             <span class="navbar-text">
                     <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
                     <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
-                    <a class="p-2 login-register nav-link-custom" href="logout.jsp">Logout</a>
+                    <a class="p-2 login-register nav-link-custom" href="Logout">Logout</a>
             </span>
             </div>
         </div>
       </nav>
     <div class="parent-container">
       <div id="header-container">
-        <p id="motto">Lost connections motto here...</p>
+        <p id="motto">don't miss the luv of ur lyfe.</p>
         <h1 id="header-words">
           start connecting
           <div class="face3-home"><img src="images/rose.png"/></div>

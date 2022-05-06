@@ -41,9 +41,9 @@ public class RegisterDispatcher extends HttpServlet {
     @Override
     protected synchronized void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String username = request.getParameter("username");
+        String email = request.getParameter("email-register");
+        String password = request.getParameter("password-register");
+        String username = request.getParameter("username-register");
         User user = new User(email, username, password);
         
         // Check if user exists
@@ -67,7 +67,9 @@ public class RegisterDispatcher extends HttpServlet {
 				
 				response.sendRedirect("login.jsp");
 			}
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     /**
