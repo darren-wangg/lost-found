@@ -38,8 +38,19 @@ public class LikeDispatcher extends HttpServlet {
     	try {
         	Like like = new Like();
         	like.setPostID(request.getParameter("post_id"));
-        	like.setProfileEmail(request.getParameter("profile_email"));
         	
+        	// Set email
+        	Cookie[] cookies = request.getCookies(); 
+        	String email_ = "";
+        	if(cookies != null) {
+        		for (Cookie aCookie : cookies) {
+        			if((aCookie.getName()).equals("email")){
+        				email_ = aCookie.getValue();
+        			}
+        		}
+        	}
+        	like.setProfileEmail(email_);
+   	
         	// Set timestamp
         	Long datetime = System.currentTimeMillis();
             Timestamp timestamp = new Timestamp(datetime);
