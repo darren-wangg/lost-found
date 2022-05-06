@@ -54,8 +54,11 @@ public class LoginDispatcher extends HttpServlet {
 				// Create cookie
 				String nameNoSpace = user.getName().replaceAll(" ", "_");
 				Cookie c = new Cookie("name", nameNoSpace);
+				Cookie c2 = new Cookie("email", request.getParameter("email"));
 				c.setMaxAge(60*60);
+				c2.setMaxAge(60*60);
 				response.addCookie(c);
+				response.addCookie(c2);
 				
 				response.sendRedirect("index.jsp");
 			}

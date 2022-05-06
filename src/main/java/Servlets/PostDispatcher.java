@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serial;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 /**
  * Servlet implementation class LoginDispatcher
@@ -45,7 +46,9 @@ public class PostDispatcher extends HttpServlet {
         	Post post = new Post();
         	post.setProfileEmail(request.getParameter("profile_email"));
         	post.setWrittenText(request.getParameter("written_text"));
-        	post.setCreatedDatetime(request.getParameter("created_datetime"));
+        	Long datetime = System.currentTimeMillis();
+            Timestamp timestamp = new Timestamp(datetime);
+        	post.setCreatedDatetime(timestamp);
 
         	response.setContentType("text/html");
 			postDao.post(post);
