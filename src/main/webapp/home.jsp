@@ -67,10 +67,22 @@
     	ArrayList<Post> posts;
     	if((ArrayList<Post>)request.getAttribute("posts") == null) posts = new ArrayList<Post>();
     	else posts = (ArrayList<Post>)request.getAttribute("posts");
-    	System.out.println(posts.size());
     	for(Post p: posts){%>
-			<p> <%= p.getWrittenText()%><p>
-			
+ 
+    	  <ul class="list-group list-group-dividered list-group-full">
+            <li class="list-group-item">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="media-body">
+                  <small class="text-muted pull-right"><%=p.getCreatedDatetime()%></small>
+                  <h4 class="media-heading">@<%=p.getProfileEmail()%></h4>
+                  <div><%=p.getWrittenText()%></div>
+                </div>
+              </div>
+            </li>
+          </ul>		
 		<%}%>
 			
     

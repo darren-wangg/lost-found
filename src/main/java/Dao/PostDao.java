@@ -69,6 +69,7 @@ public class PostDao {
 		catch (Exception ex) {}
 		return likes;
 	}
+
 	/*
 	public boolean userExists(User user) throws ClassNotFoundException, SQLException {
 		try {

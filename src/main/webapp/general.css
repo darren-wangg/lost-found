@@ -247,3 +247,25 @@ form {
     margin-bottom: 10px;
     width: 100%;
 }
+
+
+
+
+.avatar {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    white-space: nowrap;
+    border-radius: 1000px;
+    vertical-align: bottom
+    
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid transparent;
+}
