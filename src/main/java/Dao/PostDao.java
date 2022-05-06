@@ -31,8 +31,9 @@ public class PostDao {
 		return result;
 	}
 	
-	public ArrayList<Post> getPosts() throws ClassNotFoundException, SQLException {
+	public static ArrayList<Post> getPosts() throws ClassNotFoundException, SQLException {
 		ArrayList<Post> posts = new ArrayList<Post>();
+		System.out.println("IN GETPOSTS()");
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, username_, password_);
@@ -48,6 +49,7 @@ public class PostDao {
 				Timestamp created_datetime = resultSet.getTimestamp("created_datetime");
 				Post post = new Post(id, profile_email, written_text, created_datetime);
 				posts.add(post);
+				System.out.println("post " + written_text);
 			}
 		}
 		catch (Exception ex) {}

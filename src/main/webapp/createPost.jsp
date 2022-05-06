@@ -48,7 +48,7 @@
             <div class="column my-auto">
             	<br><br>
                 <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
-                <form id="form" method="POST" action="home.jsp" width="40" height="40"> <br>
+                <form id="form" method="POST" action="Post" width="40" height="40"> <br>
                 	<label for="post"></label>
                 	<textarea id="post-text" name = "post-text" rows="10" cols = "70" placeholder="Write post here. . ."></textarea><br><br>
                 	<p id="password-error" class="invalid-feedback">Post text cannot be empty.</p>

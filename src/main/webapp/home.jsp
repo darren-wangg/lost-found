@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="Dao.*" %>
+<%@ page import="Util.*" %>
+<%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,6 +62,21 @@
         alt="Add workout button"
       />
     </div>
+    
+    <%	
+    	ArrayList<Post> posts;
+    	if((ArrayList<Post>)request.getAttribute("posts") == null) posts = new ArrayList<Post>();
+    	else posts = (ArrayList<Post>)request.getAttribute("posts");
+    	for(Post p: posts){%>
+			<p> <%= p.getWrittenText() %><p>
+			
+		<%}%>
+			
+    
+    
+    
+    
+    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
