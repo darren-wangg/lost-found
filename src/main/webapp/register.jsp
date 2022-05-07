@@ -127,7 +127,13 @@
 			} else {
 				document.querySelector('.password-error').innerHTML="";
 			}
-	
+			
+			if(document.querySelector('.email-error').innerHTML=="" && document.querySelector('.username-error').innerHTML=="" && document.querySelector('.password-error').innerHTML==""){
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 		
 	</script>
