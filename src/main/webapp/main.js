@@ -4,5 +4,5 @@ $(".title").on("click", function() {
 });
 $(".add-button").on("click", function() {
     console.log("CLICKED ADD BTN!");
-    window.location="post.php";
+    window.location="post.jsp";
 });

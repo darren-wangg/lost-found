@@ -60,11 +60,7 @@
     </div>
     <div class="circles-div">
       <img class="circles" src="images/circles.png" alt="Multiple circles" />
-      <img
-        class="add-button"
-        src="images/add-button.png"
-        alt="Add workout button"
-      />
+      <i class="fa-solid fa-circle-plus add-button"></i>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

@@ -110,10 +110,14 @@ body {
 }
 .add-button {
     width: 100px;
+    height: 100px;
+    font-size: 5em;
     position: absolute;
     /* might have to change position depending on screen size */
     right: 20px;
     bottom: 20px;
+    filter: invert(41%) sepia(69%) saturate(421%) hue-rotate(182deg) brightness(86%) contrast(106%);
+    color: white;
 }
 .add-button:hover {
     animation-duration: 2s;
