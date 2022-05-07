@@ -17,6 +17,18 @@
     </style>
 </head>
 <body>
+  	<%
+    	Cookie[] cookies = request.getCookies(); 
+    	String username_ = "";
+    	if(cookies != null) {
+    		for (Cookie aCookie : cookies) {
+    			if((aCookie.getName( )).equals("username")){
+    				username_ = aCookie.getValue();
+    			}
+    		}
+    	}
+	%>
+
     <nav class="navbar navbar-custom navbar-expand-md navbar-expand-lg navbar-light" style="background-color: #B24256" >
         <div class="container-fluid">
             <a class="navbar-brand navbar-brand-custom" href="home.jsp">
@@ -37,7 +49,7 @@
             </ul>
             <span class="navbar-text">
                     <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
-                    <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
+                    <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi <%=username_%>!</span></a>
                     <a class="p-2 login-register nav-link-custom" href="Logout">Logout</a>
             </span>
             </div>

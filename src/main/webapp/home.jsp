@@ -19,6 +19,18 @@
     <link rel="stylesheet" type="text/css" href="general.css" />
   </head>
   <body>
+  	<%
+    	Cookie[] cookies = request.getCookies(); 
+    	String username_ = "";
+    	if(cookies != null) {
+    		for (Cookie aCookie : cookies) {
+    			if((aCookie.getName( )).equals("username")){
+    				username_ = aCookie.getValue();
+    			}
+    		}
+    	}
+	%>
+  
     <nav class="navbar navbar-custom navbar-expand-md navbar-expand-lg navbar-light" style="background-color: #B24256" >
         <div class="container-fluid">
             <a class="navbar-brand navbar-brand-custom" href="home.jsp">
@@ -39,7 +51,7 @@
             </ul>
             <span class="navbar-text">
                     <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
-                    <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
+                    <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi <%=username_%>!</span></a>
                     <a class="p-2 login-register nav-link-custom" href="Logout">Logout</a>
             </span>
             </div>
@@ -71,10 +83,10 @@
 	<div class="row">
 	    <div class="col-md-8">
 	        <div class="media g-mb-30 media-comment">
-	            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Image Description">
+	            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="images/rose.png" alt="Image Description">
 	            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
 	              <div class="g-mb-15">
-	                <h5 class="h5 g-color-gray-dark-v1 mb-0">@<%=UserDao.getUsername(p.getProfileEmail())%></h5>
+	                <%-- <h5 class="h5 g-color-gray-dark-v1 mb-0">@<%=UserDao.getUsername(p.getProfileEmail())%></h5> --%>
 	                <span class="g-color-gray-dark-v4 g-font-size-12"><%= p.getCreatedDatetime()%></span>
 	              </div>
 	        
