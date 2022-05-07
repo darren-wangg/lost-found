@@ -40,9 +40,13 @@
                 </li>
             </ul>
             <span class="navbar-text">
+                    <%if (username_.equals("")){%>
                     <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
+                    <%}
+					else if (!username_.equals("")){%>
                     <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi <%=username_%>!</span></a>
                     <a class="p-2 login-register nav-link-custom" href="Logout">Logout</a>
+                    <%}%>
             </span>
             </div>
         </div>
