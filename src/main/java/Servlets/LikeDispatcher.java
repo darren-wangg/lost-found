@@ -12,6 +12,7 @@ import Util.Like;
 
 import java.io.IOException;
 import java.io.Serial;
+import java.sql.Timestamp;
 
 /**
  * Servlet implementation class LogoutDispatcher
@@ -37,8 +38,23 @@ public class LikeDispatcher extends HttpServlet {
     	try {
         	Like like = new Like();
         	like.setPostID(request.getParameter("post_id"));
-        	like.setProfileEmail(request.getParameter("profile_email"));
-        	like.setCreatedTime(request.getParameter("created_time"));
+        	
+        	// Set email
+        	Cookie[] cookies = request.getCookies(); 
+        	String email_ = "";
+        	if(cookies != null) {
+        		for (Cookie aCookie : cookies) {
+        			if((aCookie.getName()).equals("email")){
+        				email_ = aCookie.getValue();
+        			}
+        		}
+        	}
+        	like.setProfileEmail(email_);
+   	
+        	// Set timestamp
+        	Long datetime = System.currentTimeMillis();
+            Timestamp timestamp = new Timestamp(datetime);
+        	like.setCreatedTime(timestamp);
 
         	response.setContentType("text/html");
 			likeDao.like(like);

@@ -38,7 +38,7 @@ public class LogoutDispatcher extends HttpServlet {
 			}
 			
 			response.setContentType("text/html");
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("logout.jsp");
 		} catch (IOException e) {
 		}
     }

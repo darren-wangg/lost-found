@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="Dao.*" %>
+<%@ page import="Util.*" %>
+<%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,54 +19,84 @@
     <link rel="stylesheet" type="text/css" href="general.css" />
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-md navbar-expand-lg navbar-light"
-      style="background-color: #4267b2"
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="home.jsp"> 🥀 </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="home.jsp"
-                >Home</a
-              >
-            </li>
-          </ul>
-          <span class="navbar-text">
-            <a class="login-register" href="login.jsp">Login/Register</a>
-            <a class="p-2 hello-username" style="color: #ffffff"
-              >Hi ${username}!</a
-            >
-            <a class="p-2 login-register" href="logout.jsp">Logout</a>
-          </span>
+    <nav class="navbar navbar-custom navbar-expand-md navbar-expand-lg navbar-light" style="background-color: #B24256" >
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-custom" href="home.jsp">
+                <img src="images/rose.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <span style="color: #efc9d2">Lost n' Found Connections</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link nav-link-custom" aria-current="page" href="home.jsp">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link nav-link-custom" href="createPost.jsp">+ Create Post</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                    <a class="login-register nav-link-custom" href="login.jsp">Login/Register</a>
+                    <a class="p-2 hello-username nav-link-custom"><span style="color:#efc9d2">Hi username!</span></a>
+                    <a class="p-2 login-register nav-link-custom" href="Logout">Logout</a>
+            </span>
+            </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     <div class="parent-container">
       <div id="header-container">
-        <p id="motto">Lost connections motto here...</p>
+        <p id="motto">don't miss the luv of ur lyfe.</p>
         <h1 id="header-words">
           start connecting
-          <div class="face3-home"><img src="images/face3.png" /></div>
+          <div class="face3-home"><img src="images/rose.png"/></div>
         </h1>
       </div>
     </div>
     <div class="circles-div">
       <img class="circles" src="images/circles.png" alt="Multiple circles" />
-      <i class="fa-solid fa-circle-plus add-button"></i>
+      <img
+        class="add-button"
+        src="images/add-button.png"
+        alt="Add workout button"
+      />
     </div>
+    
+    <%	
+    	ArrayList<Post> posts;
+    	if((ArrayList<Post>)request.getAttribute("posts") == null) posts = new ArrayList<Post>();
+    	else posts = (ArrayList<Post>)request.getAttribute("posts");
+    	for(Post p: posts){%>
+ 
+ <div class="container">
+	<div class="row">
+	    <div class="col-md-8">
+	        <div class="media g-mb-30 media-comment">
+	            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Image Description">
+	            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+	              <div class="g-mb-15">
+	                <h5 class="h5 g-color-gray-dark-v1 mb-0">@<%=p.getProfileEmail()%></h5>
+	                <span class="g-color-gray-dark-v4 g-font-size-12"><%= p.getCreatedDatetime()%></span>
+	              </div>
+	        
+	              <p><%= p.getWrittenText()%></p>
+	        
+	              <ul class="list-inline d-sm-flex my-0">
+	                <li class="list-inline-item g-mr-20">
+	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+	                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+	                    178
+	                  </a>
+	                </li>
+	              
+	              </ul>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+		<%}%>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

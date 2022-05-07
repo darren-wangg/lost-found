@@ -8,12 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Util.Post;
+import Util.User;
 import Dao.PostDao;
+import Dao.UserDao;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serial;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 
 /**
  * Servlet implementation class LoginDispatcher
@@ -34,22 +38,47 @@ public class PostDispatcher extends HttpServlet {
      * response)
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected synchronized void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
     	try {
     		if (request.getParameter("written_text") == "") {
 				request.setAttribute("error", "Post cannot be blank");
-		    	request.getRequestDispatcher("auth.jsp").include(request, response);
+		    	request.getRequestDispatcher("post.jsp").include(request, response);
     		}
         	Post post = new Post();
-        	post.setProfileEmail(request.getParameter("profile_email"));
-        	post.setWrittenText(request.getParameter("written_text"));
-        	post.setCreatedDatetime(request.getParameter("created_datetime"));
+        	
+        	// Set email
+        	Cookie[] cookies = request.getCookies(); 
+        	String email_ = "";
+        	if(cookies != null) {
+        		for (Cookie aCookie : cookies) {
+        			if((aCookie.getName( )).equals("email")){
+        				email_ = aCookie.getValue();
+        			}
+        		}
+        	}
+        	post.setProfileEmail(email_);
+        	
+        	// Set text
+        	post.setWrittenText(request.getParameter("post-text"));
+        	
+        	// Set timestamp
+        	Long datetime = System.currentTimeMillis();
+            Timestamp timestamp = new Timestamp(datetime);
+        	post.setCreatedDatetime(timestamp);
 
         	response.setContentType("text/html");
 			postDao.post(post);
-		} catch (Exception e) {		}
+			
+			ArrayList<Post> posts = PostDao.getPosts();
+			request.setAttribute("posts", posts);
+			request.getRequestDispatcher("home.jsp").include(request, response);
+    	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     /**
@@ -62,3 +91,4 @@ public class PostDispatcher extends HttpServlet {
         doGet(request, response);
     }
 }
+

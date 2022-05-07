@@ -41,31 +41,35 @@ public class RegisterDispatcher extends HttpServlet {
     @Override
     protected synchronized void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String username = request.getParameter("username");
-        User user = new User(name, email, username, password);
+        String email = request.getParameter("email-register");
+        String password = request.getParameter("password-register");
+        String username = request.getParameter("username-register");
+        User user = new User(email, username, password);
         
         // Check if user exists
         try {
         	response.setContentType("text/html");
 			if(userDao.userExists(user)) {
-				request.setAttribute("userRegistered", true);
-		    	request.getRequestDispatcher("auth.jsp").include(request, response);
+				request.setAttribute("error", "User already exist.");
+		    	request.getRequestDispatcher("register.jsp").include(request, response);
 		    	return;
 			}
 			else {
 				userDao.registerUser(user);
-				// Create cookie
-				String nameNoSpace = name.replaceAll(" ", "_");
-				Cookie c = new Cookie("name", nameNoSpace);
-				c.setMaxAge(60*60);
-				response.addCookie(c);
-	
-				response.sendRedirect("index.jsp");
+				
+				// Create cookies
+//				Cookie c = new Cookie("username", username);
+//				Cookie c2 = new Cookie("email", email);
+//				c.setMaxAge(60*60);
+//				c2.setMaxAge(60*60);
+//				response.addCookie(c);
+//				response.addCookie(c2);
+				
+				response.sendRedirect("login.jsp");
 			}
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     /**

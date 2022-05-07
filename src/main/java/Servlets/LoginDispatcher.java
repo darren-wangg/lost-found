@@ -40,26 +40,40 @@ public class LoginDispatcher extends HttpServlet {
     	
     	try {
         	User user = new User();
-        	user.setEmail(request.getParameter("email"));
+        	user.setUsername(request.getParameter("username"));
         	user.setPassword(request.getParameter("password"));
         	
     		// Check if user already exists
     		response.setContentType("text/html");
-			user = userDao.login(user);
-			if(user.getName() == null || user.getName().contentEquals("")) {
-				request.setAttribute("error", true);
-		    	request.getRequestDispatcher("auth.jsp").include(request, response);
+    		
+			int loginResponse = userDao.login(user);
+			// Error
+			if(user.getEmail() == null || user.getEmail().contentEquals("")) {
+				String errorMessage = "";
+				// User does not exist 
+				if(loginResponse == 1) errorMessage = "User does not exist.";
+				// Incorrect password
+				else if(loginResponse == 2) errorMessage = "Incorrect password.";
+					
+				request.setAttribute("error", errorMessage);
+		    	request.getRequestDispatcher("login.jsp").include(request, response);
 			}
+			// Successful login
 			else {
-				// Create cookie
-				String nameNoSpace = user.getName().replaceAll(" ", "_");
-				Cookie c = new Cookie("name", nameNoSpace);
+				// Create cookies
+				String username = user.getUsername();
+				Cookie c = new Cookie("username", username);
+				Cookie c2 = new Cookie("email", request.getParameter("email"));
 				c.setMaxAge(60*60);
+				c2.setMaxAge(60*60);
 				response.addCookie(c);
+				response.addCookie(c2);
 				
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("createPost.jsp");
 			}
-		} catch (Exception e) {		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     /**
