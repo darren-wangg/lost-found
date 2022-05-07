@@ -55,6 +55,9 @@
                 	<input type="submit" value="Post">
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
+                    <% String er = (String) request.getAttribute("error");
+					/* prints out the correct error from the servlet */
+					if (er != null) out.println(er);%>
                     </div>
                 </form>
                 <p class="login-prompt"><a href="login.jsp">Don't have an account?</a></p>

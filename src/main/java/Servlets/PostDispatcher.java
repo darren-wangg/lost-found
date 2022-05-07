@@ -42,13 +42,14 @@ public class PostDispatcher extends HttpServlet {
             throws ServletException, IOException {
     
     	try {
-    		if (request.getParameter("written_text") == "") {
-				request.setAttribute("error", "Post cannot be blank");
-		    	request.getRequestDispatcher("post.jsp").include(request, response);
-    		}
+    		// Handled from frontend
+//    		if (request.getParameter("written_text") == "") {
+//				request.setAttribute("error", "Post cannot be blank");
+//		    	request.getRequestDispatcher("createPost.jsp").include(request, response);
+//    		}
         	Post post = new Post();
         	
-        	// Set email
+        	// Get email
         	Cookie[] cookies = request.getCookies(); 
         	String email_ = "";
         	if(cookies != null) {
@@ -58,24 +59,32 @@ public class PostDispatcher extends HttpServlet {
         			}
         		}
         	}
-        	post.setProfileEmail(email_);
         	
-        	// Set text
-        	post.setWrittenText(request.getParameter("post-text"));
-        	
-        	// Set timestamp
-        	Long datetime = System.currentTimeMillis();
-            Timestamp timestamp = new Timestamp(datetime);
-        	post.setCreatedDatetime(timestamp);
+        	// Throw error if user not logged in
+        	if(email_.equals("")) {
+        		request.setAttribute("error", "User is not logged in. Please login or create an account before posting.");
+		    	request.getRequestDispatcher("createPost.jsp").include(request, response);
+        	}
+        	else {
+        		// Set post variables
+            	post.setProfileEmail(email_);
+            	
+            	// Set text
+            	post.setWrittenText(request.getParameter("post-text"));
+            	
+            	// Set timestamp
+            	Long datetime = System.currentTimeMillis();
+                Timestamp timestamp = new Timestamp(datetime);
+            	post.setCreatedDatetime(timestamp);
 
-        	response.setContentType("text/html");
-			postDao.post(post);
-			
-			ArrayList<Post> posts = PostDao.getPosts();
-			request.setAttribute("posts", posts);
-			request.getRequestDispatcher("home.jsp").include(request, response);
-    	
-			
+            	response.setContentType("text/html");
+    			postDao.post(post);
+    			
+    			ArrayList<Post> posts = PostDao.getPosts();
+    			request.setAttribute("posts", posts);
+    			request.getRequestDispatcher("home.jsp").include(request, response);
+        	}
+        		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

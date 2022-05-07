@@ -63,7 +63,7 @@ public class LoginDispatcher extends HttpServlet {
 				// Create cookies
 				String username = user.getUsername();
 				Cookie c = new Cookie("username", username);
-				Cookie c2 = new Cookie("email", request.getParameter("email"));
+				Cookie c2 = new Cookie("email", user.getEmail());
 				c.setMaxAge(60*60);
 				c2.setMaxAge(60*60);
 				response.addCookie(c);
