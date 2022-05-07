@@ -64,9 +64,7 @@
     </div>
     
     <%	
-    	ArrayList<Post> posts;
-    	if((ArrayList<Post>)request.getAttribute("posts") == null) posts = new ArrayList<Post>();
-    	else posts = (ArrayList<Post>)request.getAttribute("posts");
+    	ArrayList<Post> posts = PostDao.getPosts();
     	for(Post p: posts){%>
  
  <div class="container">

@@ -31,7 +31,7 @@ public class PostDao {
 		return result;
 	}
 	
-	public static ArrayList<Post> getPosts() throws ClassNotFoundException, SQLException {
+	public static ArrayList<Post> getPosts() {
 		ArrayList<Post> posts = new ArrayList<Post>();
     	try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -54,21 +54,21 @@ public class PostDao {
 		return posts;
 	}
 	
-	public Integer getLikes(String post_id) throws ClassNotFoundException, SQLException {
-		Integer likes = 0;
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	    	Connection con = DriverManager.getConnection(url, username_, password_);
-	    	String sql = "{CALL GetGrade(?, ?)}";
-	    	CallableStatement st = con.prepareCall(sql);
-			st.setString(1, post_id);
-			st.registerOutParameter(2, Types.INTEGER);
-			st.executeUpdate();
-			likes = st.getInt(3);
-		}
-		catch (Exception ex) {}
-		return likes;
-	}
+//	public Integer getLikes(String post_id) throws ClassNotFoundException, SQLException {
+//		Integer likes = 0;
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//	    	Connection con = DriverManager.getConnection(url, username_, password_);
+//	    	String sql = "{CALL GetGrade(?, ?)}";
+//	    	CallableStatement st = con.prepareCall(sql);
+//			st.setString(1, post_id);
+//			st.registerOutParameter(2, Types.INTEGER);
+//			st.executeUpdate();
+//			likes = st.getInt(3);
+//		}
+//		catch (Exception ex) {}
+//		return likes;
+//	}
 
 	/*
 	public boolean userExists(User user) throws ClassNotFoundException, SQLException {
