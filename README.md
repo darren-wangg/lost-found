@@ -1,4 +1,4 @@
-# lost & found
+# 🥀 lost & found 💔
 ## Spring 2022 CSCI 201 Final Project
 
 **Group members:** Charley Kim, Sarah Liang, Angela Ma, Darren Wang, Crystal Wu, Larry Xu
