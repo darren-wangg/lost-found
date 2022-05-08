@@ -71,7 +71,7 @@
       </div>
     </div>
     <div class="circles-div">
-      <img class="circles" src="images/circles.png" alt="Multiple circles" />
+      <img class="circles" src="images/hearts.png" alt="Multiple circles" />
       <img
         class="add-button"
         src="images/add-button.png"
