@@ -85,11 +85,11 @@
     	for(Post p: posts){
     		String href = "Like?id=" + p.getId();
     	%>
-<div class="container" id = "post">
+<div class="container">
 	<div class="row">
 	    <div class="col-md-8">
 	        <div class="media g-mb-30 media-comment">
-                <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
+                <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt="" id ="Post<%=p.getId()%>"> <br>
 	            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
 	              <div class="g-mb-15">
 	                <h5 class="h5 g-color-gray-dark-v1 mb-0">@<%=UserDao.getUsername(p.getProfileEmail())%></h5>
@@ -105,7 +105,10 @@
 	                  <a onclick="return confirm('You must be logged in');" href="login.jsp" style="color: grey">
               			<i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
             		  </a>
-            		  <%}%>
+            		  <%}
+            		  else {%>
+            		  <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3" style="color: grey"></i>
+            		  <%} %>
             		  <%=LikeDao.getLikes(p)%>
 	                  </a>
 	                </li>
