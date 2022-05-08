@@ -52,11 +52,11 @@ public class LikeDispatcher extends HttpServlet {
         	}
         	
         	// Throw error if user not logged in
-        	if(email_.equals("")) {
-        		request.setAttribute("error", "User is not logged in. Please login or create an account before liking.");
-		    	request.getRequestDispatcher("home.jsp").include(request, response);
-        	}
-        	else {
+//        	if(email_.equals("")) {
+//        		request.setAttribute("error", "User is not logged in. Please login or create an account before liking.");
+//		    	request.getRequestDispatcher("home.jsp").include(request, response);
+//        	}
+//        	else {
 	        	like.setProfileEmail(email_);
 	   	
 	        	// Set timestamp
@@ -66,8 +66,11 @@ public class LikeDispatcher extends HttpServlet {
 	
 	        	response.setContentType("text/html");
 				LikeDao.like(like);
+
 				response.sendRedirect("#post");
-        	}
+        	
+
+
 			
 		} catch (Exception e) {		}
     }
