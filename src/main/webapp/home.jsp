@@ -78,13 +78,13 @@
         alt="Add workout button"
       />
     </div>
+     <br><br><br><br><br>
     
     <%	
     	ArrayList<Post> posts = PostDao.getPosts();
     	for(Post p: posts){
     		String href = "Like?id=" + p.getId();
     	%>
- 
  <div class="container">
 	<div class="row">
 	    <div class="col-md-8">
