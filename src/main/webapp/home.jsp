@@ -75,7 +75,6 @@
       <img
         class="add-button"
         src="images/add-btn.png"
-        alt="Add workout button"
       />
     </div>
      <br><br><br><br><br>

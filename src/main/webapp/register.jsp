@@ -95,12 +95,10 @@
 				/* @usc.edu is 8 characters */
 				if(res)
 				{
-					console.log("HI");
 					return true;
 				}
 				else
 				{
-					console.log("ERROR");
 					return false;
 				}
 			}

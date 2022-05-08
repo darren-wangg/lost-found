@@ -122,17 +122,15 @@ body {
 .add-button {
     width: 100px;
     height: 100px;
-    font-size: 5em;
-    position: absolute;
+    position: fixed;
     /* might have to change position depending on screen size */
-    right: 20px;
-    bottom: 20px;
-    filter: invert(41%) sepia(69%) saturate(421%) hue-rotate(182deg) brightness(86%) contrast(106%);
+    right: 40px;
+    bottom: 40px;
     color: white;
 }
 .add-button:hover {
     animation-duration: 2s;
-    animation-name: bounce;
+
     /* freezes on last frame */
     animation-fill-mode: forwards;
     /* box-shadow: 10px 5px 2px #807f6c; */
@@ -297,7 +295,6 @@ form {
 
 .row{
 	justify-content: center;
-<<<<<<< HEAD
 }
 
 #post-text {
@@ -314,6 +311,3 @@ form {
     align-items: center;
     justify-content: center;
 }
-=======
-}
->>>>>>> 2e040db005ff6c6866ffef6264b2588d8ceb7597
