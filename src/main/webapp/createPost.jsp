@@ -60,15 +60,15 @@
         </div>
       </nav>
     <div class="container post-container">
-        <div class="row h-100 inputs-div align-items-center">
-            <div class="column my-auto">
-            	<br><br>
-                <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
+        <div class="row inputs-div align-items-center">
+            <div class="column my-auto post-column">
                 <form id="form" method="POST" action="Post" width="40" height="40"> <br>
+                	<img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt="">
                 	<label for="post"></label>
-                	<textarea id="post-text" name = "post-text" rows="10" cols = "70" placeholder="Write post here. . ."></textarea><br><br>
+                	<br><br>
+                	<textarea id="post-text" name = "post-text" rows="10" cols = "70" placeholder=" Write your spicy message here"></textarea><br><br>
                 	<p id="password-error" class="invalid-feedback">Post text cannot be empty.</p>
-                	<input type="submit" value="Post">
+                	<input type="submit" value="Post" id="post-btn">
                     <div class="font-italic text-danger">
                     <!-- Show errors here. -->
                     <% String er = (String) request.getAttribute("error");
@@ -76,7 +76,7 @@
 					if (er != null) out.println(er);%>
                     </div>
                 </form>
-                <p class="login-prompt"><a href="login.jsp">Don't have an account?</a></p>
+<!--                 <p class="login-prompt"><a href="login.jsp">Don't have an account?</a></p> -->
             </div>
         </div>
     </div>

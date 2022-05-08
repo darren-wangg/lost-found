@@ -45,7 +45,7 @@ body {
 .parent-container {
     width: 100%;
     /* height of browser without the navbar */
-    height: 720px; 
+    height: 730px; 
     /* border: 1px solid black; */
     display: flex;
     align-items: center;
@@ -161,7 +161,7 @@ body {
     margin-bottom: 10px;
     width: 80%;
 }
-#login-submit-btn, #register-submit-btn, #next-btn {
+#login-submit-btn, #register-submit-btn, #next-btn, #post-btn {
     background-color: #FFFFFF;
     border: 1.5px solid #587f56;
     border-radius: 8px;
@@ -170,7 +170,7 @@ body {
     padding-right: 30px;
     padding-left: 30px;
 }
-#login-submit-btn:hover, #register-submit-btn:hover, #next-btn:hover {
+#login-submit-btn:hover, #register-submit-btn:hover, #next-btn:hover, #post-btn:hover {
     background-color: #587f56;
     color: #FFFFFF;
 }
@@ -297,4 +297,19 @@ form {
 
 .row{
 	justify-content: center;
+}
+
+#post-text {
+	background-color: #a6c192;
+    border: none;
+    border-radius: 8px;
+}
+.post-column {
+	width: 100%;
+    /* height of browser without the navbar */
+    height: 730px; 
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

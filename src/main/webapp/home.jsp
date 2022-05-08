@@ -74,7 +74,7 @@
       <img class="circles" src="images/hearts.png" alt="Multiple circles" />
       <img
         class="add-button"
-        src="images/add-button.png"
+        src="images/add-btn.png"
         alt="Add workout button"
       />
     </div>
