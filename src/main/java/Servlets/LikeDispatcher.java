@@ -58,6 +58,7 @@ public class LikeDispatcher extends HttpServlet {
 
         	response.setContentType("text/html");
 			likeDao.like(like);
+			response.sendRedirect("home.jsp");
 			
 		} catch (Exception e) {		}
     }

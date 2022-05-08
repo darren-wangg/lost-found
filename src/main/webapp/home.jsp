@@ -87,10 +87,10 @@
 	<div class="row">
 	    <div class="col-md-8">
 	        <div class="media g-mb-30 media-comment">
-	            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="images/rose.png" alt="Image Description">
+                <img src="images/rose.png" width="40" height="40" class="d-inline-block align-top" alt=""> <br>
 	            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
 	              <div class="g-mb-15">
-	                <%-- <h5 class="h5 g-color-gray-dark-v1 mb-0">@<%=UserDao.getUsername(p.getProfileEmail())%></h5> --%>
+	                <h5 class="h5 g-color-gray-dark-v1 mb-0">@<%=UserDao.getUsername(p.getProfileEmail())%></h5>
 	                <span class="g-color-gray-dark-v4 g-font-size-12"><%= p.getCreatedDatetime()%></span>
 	              </div>
 	        
@@ -98,7 +98,7 @@
 	        
 	              <ul class="list-inline d-sm-flex my-0">
 	                <li class="list-inline-item g-mr-20">
-	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="Like">
 	                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
 	                    <%=LikeDao.getLikes(p)%>
 	                  </a>
