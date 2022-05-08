@@ -82,7 +82,7 @@ body {
   /* The typewriter cursor effect */
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: #FFFFFF; }
+    50% { border-color: #f0dade; }
   }
 /**** Graphics ****/
 .face3-home {
