@@ -98,7 +98,7 @@
 	        
 	              <ul class="list-inline d-sm-flex my-0">
 	                <li class="list-inline-item g-mr-20">
-	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="Like">
 	                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
 	                    <%=LikeDao.getLikes(p)%>
 	                  </a>
