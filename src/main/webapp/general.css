@@ -297,6 +297,7 @@ form {
 
 .row{
 	justify-content: center;
+<<<<<<< HEAD
 }
 
 #post-text {
@@ -313,3 +314,6 @@ form {
     align-items: center;
     justify-content: center;
 }
+=======
+}
+>>>>>>> 2e040db005ff6c6866ffef6264b2588d8ceb7597

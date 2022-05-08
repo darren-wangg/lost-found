@@ -90,23 +90,25 @@
 			function ValidateEmail(inputText)
 			{
 				var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-				var patt = new RegExp("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
+				var patt = new RegExp("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@usc.edu");
 			    var res = patt.test(inputText);
 				/* @usc.edu is 8 characters */
-				if(res && inputText.substring(inputText.length - 8, inputText.length) == "usc.edu")
+				if(res)
 				{
+					console.log("HI");
 					return true;
 				}
 				else
 				{
+					console.log("ERROR");
 					return false;
 				}
 			}
 			if ( document.querySelector('#email-register').value.trim().length == 0 ) {
 				document.querySelector('.email-error').innerHTML="Email is required";
 			} 
-			else if (ValidateEmail(document.querySelector('#email-register').value)) {
-				console.log("HI");
+			else if (!ValidateEmail(document.querySelector('#email-register').value)) {
+				document.querySelector('.email-error').innerHTML="Invalid email format, or non-USC email is entered";
 			}
 			else {
 				document.querySelector('.email-error').innerHTML="";
