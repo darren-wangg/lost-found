@@ -101,8 +101,14 @@
 	              <ul class="list-inline d-sm-flex my-0">
 	                <li class="list-inline-item g-mr-20">
 	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href=<%=href%>>
-	                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+	                  <%if (username_.equals("")){%>
+	                  <a onclick="return confirm('You must be logged in');" href="login.jsp" class="fa-thumbs-up">
+              			<i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+            		  </a>
+            		  <%}
+	                  else if (!username_.equals("")){%>
 	                    <%=LikeDao.getLikes(p)%>
+                      <%}%>
 	                  </a>
 	                </li>
 	              
