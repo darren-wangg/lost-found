@@ -81,7 +81,9 @@
     
     <%	
     	ArrayList<Post> posts = PostDao.getPosts();
-    	for(Post p: posts){%>
+    	for(Post p: posts){
+    		String href = "Like?id=" + p.getId();
+    	%>
  
  <div class="container">
 	<div class="row">
@@ -98,7 +100,7 @@
 	        
 	              <ul class="list-inline d-sm-flex my-0">
 	                <li class="list-inline-item g-mr-20">
-	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="Like">
+	                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href=<%=href%>>
 	                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
 	                    <%=LikeDao.getLikes(p)%>
 	                  </a>

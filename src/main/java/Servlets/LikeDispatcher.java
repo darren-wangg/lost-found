@@ -37,9 +37,10 @@ public class LikeDispatcher extends HttpServlet {
             throws IOException {
     	try {
         	Like like = new Like();
-        	like.setPostID(request.getParameter("post_id"));
+        	String id = (String)request.getParameter("id");
+        	like.setPostID(id);
         	
-        	// Set email
+        	// Get email
         	Cookie[] cookies = request.getCookies(); 
         	String email_ = "";
         	if(cookies != null) {
@@ -49,16 +50,24 @@ public class LikeDispatcher extends HttpServlet {
         			}
         		}
         	}
-        	like.setProfileEmail(email_);
-   	
-        	// Set timestamp
-        	Long datetime = System.currentTimeMillis();
-            Timestamp timestamp = new Timestamp(datetime);
-        	like.setCreatedTime(timestamp);
-
-        	response.setContentType("text/html");
-			likeDao.like(like);
-			response.sendRedirect("home.jsp");
+        	
+        	// Throw error if user not logged in
+        	if(email_.equals("")) {
+        		request.setAttribute("error", "User is not logged in. Please login or create an account before liking.");
+		    	request.getRequestDispatcher("home.jsp").include(request, response);
+        	}
+        	else {
+	        	like.setProfileEmail(email_);
+	   	
+	        	// Set timestamp
+	        	Long datetime = System.currentTimeMillis();
+	            Timestamp timestamp = new Timestamp(datetime);
+	        	like.setCreatedTime(timestamp);
+	
+	        	response.setContentType("text/html");
+				LikeDao.like(like);
+				response.sendRedirect("home.jsp");
+        	}
 			
 		} catch (Exception e) {		}
     }

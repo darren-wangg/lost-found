@@ -39,6 +39,7 @@ public class LikeDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	    	Connection con = DriverManager.getConnection(url, Constant.DBUserName, Constant.DBPassword);
 	    	
+	    	//int id = Integer.valueOf(p.getId());
 	    	String count = "SELECT COUNT(*) AS likes FROM post_like pl INNER JOIN user_post up ON pl.post_id = up.id WHERE pl.post_id = " 
 	    			+ p.getId() + ";";
 			Statement statement = con.createStatement();

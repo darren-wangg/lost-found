@@ -42,7 +42,7 @@ public class PostDao {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()){
-				String id = resultSet.getString("id");
+				String id = Integer.toString(resultSet.getInt("id"));
 				String profile_email = resultSet.getString("profile_email");
 				String written_text = resultSet.getString("written_text");
 				Timestamp created_datetime = resultSet.getTimestamp("created_datetime");
